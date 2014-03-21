@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NHibernateLibrary.Helper
+namespace NHibernateLibrary
 {
 
     /// <summary>
@@ -28,6 +28,8 @@ namespace NHibernateLibrary.Helper
                 if (sessionFactory == null)
                 {
                     Configuration configuration = new Configuration();
+                   // configuration.AddAssembly(typeof(Customer).Assembly);
+
                     configuration.Configure();
 
                     // build a Session Factory
@@ -73,6 +75,7 @@ namespace NHibernateLibrary.Helper
         /// <returns>The current binded NHibernate ISession.</returns>
         public static ISession GetCurrentSession()
         {
+
             if (!CurrentSessionContext.HasBind(SessionFactory))
             {
                 CurrentSessionContext.Bind(SessionFactory.OpenSession());

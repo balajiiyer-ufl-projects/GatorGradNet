@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NHibernateLibrary" assembly="NHibernateLibrary">
+
+  <class name="Customer" table="CUSTOMERS">
+
+    <id name="Customer_Id" column="CUSTOMER_ID" >
+      <generator class="identity"></generator>
+    </id>
+
+    <property name="Cust_First_Name" column="CUST_FIRST_NAME" type="String" length="20" ></property>
+    <property name="Cust_Last_Name" column="CUST_LAST_NAME" type="String" length="20" ></property>
+    <property name="Credit_Limit" column="CREDIT_LIMIT"></property>
+    <property name="Cust_Email" column="CUST_EMAIL"></property>
+    <property name="Date_of_Birth" column="DATE_OF_BIRTH"></property>
+  </class>
+
+</hibernate-mapping>

@@ -55,13 +55,23 @@
     <Compile Include="Customer.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Entities\Address.cs" />
+    <Compile Include="Entities\Company.cs" />
+    <Compile Include="Entities\CompanyDesignation.cs" />
+    <Compile Include="Entities\CompanyIndustry.cs" />
+    <Compile Include="Entities\Designations.cs" />
+    <Compile Include="Entities\LocationSalary.cs" />
+    <Compile Include="Entities\PhoneNos.cs" />
+    <Compile Include="Entities\PrevEduGroup.cs" />
+    <Compile Include="Entities\PrevLocGroup.cs" />
+    <Compile Include="Entities\PrevWorkGroup.cs" />
+    <Compile Include="Entities\ProfileUser.cs" />
+    <Compile Include="Entities\Recruitment.cs" />
+    <Compile Include="Entities\Salary.cs" />
     <Compile Include="Helper\NHibernateHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="Mapping\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
@@ -69,6 +79,21 @@
     <EmbeddedResource Include="Customer.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mapping\Address.hbm.xml" />
+    <Content Include="Mapping\Company.hbm.xml" />
+    <Content Include="Mapping\CompanyDesignation.hbm.xml" />
+    <Content Include="Mapping\CompanyIndustry.hbm.xml" />
+    <Content Include="Mapping\Designations.hbm.xml" />
+    <Content Include="Mapping\LocationSalary.hbm.xml" />
+    <Content Include="Mapping\PhoneNos.hbm.xml" />
+    <Content Include="Mapping\PrevEduGroup.hbm.xml" />
+    <Content Include="Mapping\PrevLocGroup.hbm.xml" />
+    <Content Include="Mapping\PrevWorkGroup.hbm.xml" />
+    <Content Include="Mapping\ProfileUser.hbm.xml" />
+    <Content Include="Mapping\Recruitment.hbm.xml" />
+    <Content Include="Mapping\Salary.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

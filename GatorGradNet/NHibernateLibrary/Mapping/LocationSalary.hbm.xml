@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NhbHelper" assembly="NhbHelper">
+
+  <class name="LocationSalary" table="LOCATIONSALARY">
+
+    <composite-id>
+      <key-property name="CompanyID" column="COMPANYID"></key-property>
+      <key-property name="DesignationID" column="DESIGNATIONID"></key-property>
+    </composite-id>
+
+    <property name="Location" column="LOCATION" type="String" length="100" not-null="true" ></property>
+
+    <many-to-one name="CompanyID" class="Company" column="DesignationID" />
+    <many-to-one name="DesignationID" class="Designations" column="DesignationID" />
+
+  </class>
+
+</hibernate-mapping>

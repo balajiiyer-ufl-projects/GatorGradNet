@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NhbHelper" assembly="NhbHelper">
+
+  <class name="Company" table="COMPANY">
+
+    <id name="CompanyID" column="COMPANYID">
+      <generator class="identity"></generator>
+    </id>
+
+    <property name="CompanyName" column="COMPANYNAME" type="String" length="50" not-null="true" ></property>
+    <property name="Description" column="DESCRIPTION" type="String" length="100" ></property>
+    <property name="URL" column="URL" type="String" length="100" not-null="true"></property>
+    <property name="NoOfEmps" column="NOOFEMPS"></property>
+    <property name="HQLocation" column="HQLOCATION" length="100" ></property>
+  </class>
+
+</hibernate-mapping>

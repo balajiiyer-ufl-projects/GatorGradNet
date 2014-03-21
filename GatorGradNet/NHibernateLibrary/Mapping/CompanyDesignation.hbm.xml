@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NhbHelper" assembly="NhbHelper">
+
+  <class name="CompanyDesignation" table="COMPANYDESIGNATION">
+
+    <composite-id>
+      <key-property name="CompanyID" column="COMPANYID"></key-property>
+      <key-property name="Designation" column="DESIGNATION" length="50"></key-property>
+    </composite-id>
+
+    <many-to-one name="CompanyID" class="Company" column="CompanyID" />
+    
+  </class>
+
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NHibernateLibrary" assembly="NHibernateLibrary">
+
+  <class name="PrevEduGroup" table="PREVEDUGROUP">
+
+    <composite-id>
+      <key-property name="UserID" column="USERID"></key-property>
+      <key-property name="PreviousEducation" column="PREVIOUSEDUCATION" type="String" length="200" ></key-property>
+    </composite-id>
+
+    <many-to-one name="UserID" class="ProfileUser" column="USERID" />
+
+  </class>
+
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NHibernateLibrary" assembly="NHibernateLibrary">
+
+  <class name="Address" table="ADDRESS">
+
+    <composite-id>
+
+      <key-property name="UserID" column="USERID"></key-property>
+      <key-property name="Street" column="STREET" type="String" length="200" ></key-property>
+      <key-property name="City" column="CITY" type="String" length="100" ></key-property>
+      <key-property name="Country" column="COUNTRY" type="String" length="100" ></key-property>
+    </composite-id>
+
+    <many-to-one name="ProfileUser" class="ProfileUser" column="USERID" />
+
+  </class>
+
+</hibernate-mapping>

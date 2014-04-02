@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NHibernateLibrary
+namespace NHibernateLibrary.Helper
 {
 
     /// <summary>
@@ -28,7 +28,7 @@ namespace NHibernateLibrary
                 if (sessionFactory == null)
                 {
                     Configuration configuration = new Configuration();
-                   // configuration.AddAssembly(typeof(Customer).Assembly);
+                    //configuration.AddAssembly(typeof(Customer).Assembly);
 
                     configuration.Configure();
 

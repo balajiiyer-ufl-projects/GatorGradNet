@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateLibrary", "NHiber
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradNetBusinessLayer", "BusinessLayer\GradNetBusinessLayer.csproj", "{670C4EAA-EBD2-4A57-9FFB-FB015E378AE3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{16C523A8-D968-4F8F-A045-7193560EA610}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{670C4EAA-EBD2-4A57-9FFB-FB015E378AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{670C4EAA-EBD2-4A57-9FFB-FB015E378AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{670C4EAA-EBD2-4A57-9FFB-FB015E378AE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16C523A8-D968-4F8F-A045-7193560EA610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16C523A8-D968-4F8F-A045-7193560EA610}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16C523A8-D968-4F8F-A045-7193560EA610}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16C523A8-D968-4F8F-A045-7193560EA610}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

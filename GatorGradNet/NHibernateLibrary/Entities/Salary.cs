@@ -9,10 +9,26 @@ namespace NHibernateLibrary.Entities
 {
     public class Salary : BaseEntity<Int64>
     {
-        public virtual int CompanyID { get; set; }
-        public virtual int DesignationID { get; set; }
-        public float MinSalary { get; set; }
-        public float AvgSalary { get; set; }
-        public float MaxSalary { get; set; }
+        //public virtual Company Company { get; set; }
+        public virtual CompanyDesignation CompanyDesignationId { get; set; }
+        public virtual float MinSalary { get; set; }
+        public virtual float AvgSalary { get; set; }
+        public virtual float MaxSalary { get; set; }
+
+        public override bool Equals(object salary)
+        {
+            if (salary == null)
+                return false;
+            var instance = salary as Salary;
+            if (instance == null)
+                return false;
+            if (MinSalary == instance.MinSalary && AvgSalary == instance.AvgSalary && MaxSalary == instance.MaxSalary && CompanyDesignationId==instance.CompanyDesignationId)
+                return true;
+            return false;
+        }
+        public override int GetHashCode()
+        {
+            return (GetType().FullName + "|" + CompanyDesignationId + "|" + MinSalary + "|" + AvgSalary+"|" + MaxSalary).GetHashCode();
+        }  
     }
 }

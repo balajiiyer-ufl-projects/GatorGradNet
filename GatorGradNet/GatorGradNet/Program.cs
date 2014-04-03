@@ -1,6 +1,7 @@
 ﻿using NHibernate;
 using NHibernate.Linq;
 using NHibernateLibrary;
+using NHibernateLibrary;
 using NHibernateLibrary.Entities;
 using System;
 using System.Collections.Generic;
@@ -22,14 +23,14 @@ namespace GatorGradNet
             ITransaction tx = session.BeginTransaction();
             ICriteria criteria = session.CreateCriteria(typeof(Customer));
             //myList= criteria.List<Customer>();
-            IQuery query = session.CreateQuery("select c from Customer as c");
-            myList = query.List<Customer>();
+            //IQuery query = session.CreateQuery("select c from Customer as c");
+            //myList = query.List<Customer>();
 
             ICriteria addCriteria = session.CreateCriteria(typeof(Address));
             IQuery aquery = session.CreateQuery("select a from Address as a");
             amyList=session.Query<Address>().ToList();
             //amyList = aquery.List<Address>();
-            Console.WriteLine(myList.Count());
+            Console.WriteLine(amyList.Count());
         }
     }
 }

@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace NHibernateLibrary.Entities
 {
+
     public class Address : BaseEntity<Int64>
     {
-       
+
+        #region Public Members
         //public virtual Int64 UserID { get; set; }
         public virtual String Street { get; set; }
         public virtual String City { get; set; }
@@ -32,7 +34,8 @@ namespace NHibernateLibrary.Entities
         {
             return (GetType().FullName + "|"  + UserId +
                "|" + Street + "|" + City + "|" + Country).GetHashCode();
-        }  
+        }
 
+        #endregion 
     }
 }

@@ -15,8 +15,9 @@ namespace NHibernateLibrary.Helper
     /// <typeparam name="TIdentifier">Identifier Generic Type to be assigned dynamically.</typeparam>
     public class BaseDataAccess<TEntity, TIdentifier>
         where TIdentifier : new()
-        where TEntity : BaseEntity<TIdentifier> 
-      {
+        where TEntity : BaseEntity<TIdentifier>
+    {
+        
         /// <summary>
         /// NHibernate ISession to be used to manipulate data in the
         /// database.

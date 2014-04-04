@@ -17,7 +17,7 @@ namespace GatorGradNet.BusinessLayer
                 profileUser = new NHibernateLibrary.Entities.ProfileUser();
                 profileUser.Username = userName;
                 profileUser.Password = password;
-                profileUser = DataAccessLayer.UserManagement.getInstance().Login(profileUser);
+                profileUser = DataAccessLayer.UserManagement.Instance().Login(profileUser);
             }
             return profileUser;
         }
@@ -30,7 +30,7 @@ namespace GatorGradNet.BusinessLayer
             {
                 profileUser = new NHibernateLibrary.Entities.ProfileUser();
                 profileUser.Username = userName;
-                userExists = DataAccessLayer.UserManagement.getInstance().CheckIfUserExists(profileUser);
+                userExists = DataAccessLayer.UserManagement.Instance().CheckIfUserExists(profileUser);
             }
             return userExists;
         }

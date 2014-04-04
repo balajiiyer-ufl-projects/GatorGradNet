@@ -16,7 +16,7 @@ namespace GatorGradNet.DataAccessLayer
 
         private static UserManagement userManagementInstance = new UserManagement();
 
-        public static UserManagement getInstance(){
+        public static UserManagement Instance(){
 
             return userManagementInstance;
         }
@@ -29,12 +29,6 @@ namespace GatorGradNet.DataAccessLayer
 
             if (query != null && query.RowCount() > 0)
             {
-                //userList = query.List<NHibernateLibrary.Entities.ProfileUser>();
-                
-                //if (userList[0].Password != profileUser.Password)
-                //{
-                //    userList[0] = null;
-                //}
                 userList[0] = profileUser;
                 
             }

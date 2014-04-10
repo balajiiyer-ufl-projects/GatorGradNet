@@ -1,15 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NhbHelper" assembly="NhbHelper">
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NHibernateLibrary.Entities" assembly="NHibernateLibrary">
 
   <class name="CompanyDesignation" table="COMPANYDESIGNATION">
 
+    <!--<id name="Id" column="COMPANYDESIGNATIONID">
+      <generator class="identity"></generator>
+    </id>-->
     <composite-id>
-      <key-property name="CompanyID" column="COMPANYID"></key-property>
-      <key-property name="Designation" column="DESIGNATION" length="50"></key-property>
+    <key-property name="Id" column="COMPANYDESIGNATIONID" type="Int64">
+      <column name="COMPANYDESIGNATIONID" unique="true" not-null="true"/>
+    </key-property>
+      <key-many-to-one name="CompanyId" class="Company" column="CompanyId" />
+      <key-property name="Designation" column="DESIGNATION" length="50"/>
+    
     </composite-id>
 
-    <many-to-one name="CompanyID" class="Company" column="CompanyID" />
+    <set name="Locations" inverse="true" cascade="save-update">
+      <key not-null="true">
+      <column name="COMPANYDESIGNATIONID" />
+      <column name="CompanyId"  />
+      <column name="DESIGNATION"  />
+      </key>
+      <one-to-many class="Location" />
+    </set>
+
+    <set name="Recruitments" inverse="true" cascade="save-update">
+      <key not-null="true">
+        <column name="COMPANYDESIGNATIONID" />
+        <column name="CompanyId"  />
+        <column name="DESIGNATION"  />
+      </key>
+      <one-to-many class="Recruitment" />
+    </set>
+
+    <set name="Salaries" inverse="true" cascade="save-update">
+      <key not-null="true">
+        <column name="COMPANYDESIGNATIONID" />
+        <column name="CompanyId"  />
+        <column name="DESIGNATION"  />
+      </key>
+      <one-to-many class="Salary" />
+    </set>
+      <!--<property name="CompanyID" column="COMPANYID"></property>-->
+      <!--<property name="Designation" column="DESIGNATION" length="50"></property>
+     <many-to-one name="Company" class="Company" column="Id" />-->
     
+    <!--<one-to-one name="Location" class="Location" property-ref="CompanyDesignation" cascade="save-update"></one-to-one>
+    <one-to-one name="Salary" class="Salary" property-ref="CompanyDesignation" cascade="save-update"></one-to-one>
+    <one-to-one name="Recruitment" class="Recruitment" property-ref="CompanyDesignation" cascade="save-update"></one-to-one>-->
+
+
   </class>
 
 </hibernate-mapping>

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NhbHelper" assembly="NhbHelper">
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NHibernateLibrary.Entities" assembly="NHibernateLibrary">
 
   <class name="Company" table="COMPANY">
 
-    <id name="CompanyID" column="COMPANYID">
+    <id name="Id" column="COMPANYID">
       <generator class="identity"></generator>
     </id>
 
@@ -12,6 +12,24 @@
     <property name="URL" column="URL" type="String" length="100" not-null="true"></property>
     <property name="NoOfEmps" column="NOOFEMPS"></property>
     <property name="HQLocation" column="HQLOCATION" length="100" ></property>
+
+    <set name="Designations" inverse="true" cascade="save-update">
+      <key column="COMPANYID"  not-null="true"/>
+      <one-to-many class="CompanyDesignation" />
+    </set>
+
+    <set name="Industries" inverse="true" cascade="save-update">
+      <key column="COMPANYID"  not-null="true"/>
+      <one-to-many class="CompanyIndustry" />
+    </set>
+
+    
+    <!--<one-to-one name="Designation" class="CompanyDesignation" property-ref="Company" cascade="save-update"></one-to-one>
+    <one-to-one name="Industry" class="CompanyIndustry" property-ref="Company" cascade="save-update"></one-to-one>-->
+    <!--<one-to-one name="LocationName" class="Location" property-ref="Company" cascade="save-update"></one-to-one>-->
+    <!--<one-to-one name="Recruitment" class="Recruitment" property-ref="Company" cascade="save-update"></one-to-one>
+    <one-to-one name="Salary" class="Salary" property-ref="Company" cascade="save-update"></one-to-one>-->
+
   </class>
 
 </hibernate-mapping>

@@ -1,19 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NhbHelper" assembly="NhbHelper">
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NHibernateLibrary.Entities" assembly="NHibernateLibrary">
 
   <class name="ProfileUser" table="PROFILEUSER">
 
-    <id name="UserID" column="USERID">
-      <generator class="identity"></generator>
+    <id name="Id" column="UserId">
+      <!--<generator class="identity"></generator>-->
+   
     </id>
 
     <property name="Username" column="USERNAME" type="String" length="50" not-null="true" unique="true" ></property>
     <property name="Password" column="PASSWORD" type="String" length="50" not-null="true" ></property>
     <property name="Email" column="EMAIL" type="String" length="50" ></property>
+    <property name="FirstName" column="FIRSTNAME" type="String" length="30" ></property>
+    <property name="LastName" column="LASTNAME" type="String" length="30" ></property>
+    <property name="Branch" column="BRANCH" type="String" length="50" ></property>
+    <property name="GPA" column="GPA" type="Int32"></property>
     <property name="PrevEducation" column="PREVEDUCATION" type="String" length="100" ></property>
     <property name="PrevWork" column="PREVWORK" type="String" length="100" ></property>
     <property name="PrevLocation" column="PREVLOCATION" type="String" length="100" ></property>
     <property name="CurrentWork" column="CURRENTWORK" type="String" length="100" ></property>
+    <property name="DreamCompany" column="DREAMCOMPANY" type="String" length="100" ></property>
+
+    <set name="Addresses" inverse="true" cascade="save-update">
+      <key column="UserId"  not-null="true"/>
+      <one-to-many class="Address" />
+    </set>
+
+    <set name="PhoneNumbers" inverse="true" cascade="save-update">
+      <key column="UserId"  not-null="true"/>
+      <one-to-many class="PhoneNos" />
+    </set>
+
+    <set name="PreviousEducation" inverse="true" cascade="save-update">
+      <key column="UserId"  not-null="true"/>
+      <one-to-many class="PrevEduGroup" />
+    </set>
+
+    <set name="PreviousLocation" inverse="true" cascade="save-update">
+      <key column="UserId"  not-null="true"/>
+      <one-to-many class="PrevLocGroup" />
+    </set>
+
+    <set name="PreviousWork" inverse="true" cascade="save-update">
+      <key column="UserId"  not-null="true"/>
+      <one-to-many class="PrevWorkGroup" />
+    </set>
+    
+    <!--<one-to-one name="Address" class="Address" property-ref="UserID" cascade="save-update"/>-->
+    <!--<one-to-one name="PhoneNo" class="PhoneNos" property-ref="User" cascade="save-update"/>-->
+    <!--<one-to-one name="PreviousEducation" class="PrevEduGroup" property-ref="User" cascade="save-update"/>-->
+    <!--<one-to-one name="PreviousLocation" class="PrevLocGroup" property-ref="User" cascade="save-update"/>
+    <one-to-one name="PreviousWork" class="PrevWorkGroup" property-ref="User" cascade="save-update"/>-->
   </class>
 
 </hibernate-mapping>

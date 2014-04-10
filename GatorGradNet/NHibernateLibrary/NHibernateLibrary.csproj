@@ -45,6 +45,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,48 +53,93 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Address.cs">
+      <SubType>Code</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Customer.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Company.cs" />
     <Compile Include="Entities\CompanyDesignation.cs" />
     <Compile Include="Entities\CompanyIndustry.cs" />
     <Compile Include="Entities\Designations.cs" />
-    <Compile Include="Entities\LocationSalary.cs" />
-    <Compile Include="Entities\PhoneNos.cs" />
-    <Compile Include="Entities\PrevEduGroup.cs" />
-    <Compile Include="Entities\PrevLocGroup.cs" />
-    <Compile Include="Entities\PrevWorkGroup.cs" />
-    <Compile Include="Entities\ProfileUser.cs" />
+    <Compile Include="Entities\Location.cs" />
+    <Compile Include="Entities\PhoneNos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entities\PrevEduGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entities\PrevLocGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entities\PrevWorkGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entities\ProfileUser.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Entities\Recruitment.cs" />
     <Compile Include="Entities\Salary.cs" />
+    <Compile Include="Helper\BaseDataAccess.cs" />
+    <Compile Include="Helper\BaseEntity.cs" />
     <Compile Include="Helper\NHibernateHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\PhoneNos.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\PrevEduGroup.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\PrevLocGroup.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\PrevWorkGroup.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\ProfileUser.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Mapping\Address.hbm.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customer.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Mapping\Address.hbm.xml" />
-    <Content Include="Mapping\Company.hbm.xml" />
-    <Content Include="Mapping\CompanyDesignation.hbm.xml" />
-    <Content Include="Mapping\CompanyIndustry.hbm.xml" />
-    <Content Include="Mapping\Designations.hbm.xml" />
-    <Content Include="Mapping\LocationSalary.hbm.xml" />
-    <Content Include="Mapping\PhoneNos.hbm.xml" />
-    <Content Include="Mapping\PrevEduGroup.hbm.xml" />
-    <Content Include="Mapping\PrevLocGroup.hbm.xml" />
-    <Content Include="Mapping\PrevWorkGroup.hbm.xml" />
-    <Content Include="Mapping\ProfileUser.hbm.xml" />
-    <Content Include="Mapping\Recruitment.hbm.xml" />
-    <Content Include="Mapping\Salary.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Company.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\CompanyDesignation.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\CompanyIndustry.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\Designations.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\Location.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\Recruitment.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\Salary.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

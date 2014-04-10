@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NhbHelper" assembly="NhbHelper">
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NHibernateLibrary.Entities" assembly="NHibernateLibrary">
 
   <class name="PhoneNos" table="PHONENOS">
 
     <composite-id>
-      <key-property name="UserID" column="USERID"></key-property>
+      <key-property name="Id" column="Id" type="Int64">
+        <column name="Id" unique="true" not-null="true"/>
+      </key-property>
+      <key-many-to-one name="UserId" class="ProfileUser" column="UserId" />
       <key-property name="PhoneNo" column="PHONENO" length="20"></key-property>
     </composite-id>
 
-    <many-to-one name="UserID" class="ProfileUser" column="USERID" />
+    <!--<many-to-one name="UserID" class="ProfileUser" column="USERID" />-->
 
   </class>
 

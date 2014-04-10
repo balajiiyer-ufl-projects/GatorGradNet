@@ -1,13 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NhbHelper" assembly="NhbHelper">
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NHibernateLibrary.Entities" assembly="NHibernateLibrary">
 
   <class name="Designations" table="DESIGNATIONS">
 
-    <id name="DesignationID" column="DESIGNATIONID">
+    <id name="Id" column="Id">
       <generator class="identity"></generator>
     </id>
 
     <property name="Designation" column="DESIGNATION" type="String" length="100" not-null="true" ></property>
+    <!--<one-to-one name="Location" class="Location" property-ref="Designation" cascade="save-update"></one-to-one>-->
+    <!--<one-to-one name="Recruitment" class="Recruitment" property-ref="Designation" cascade="save-update"></one-to-one>
+    <one-to-one name="Salary" class="Salary" property-ref="Designation" cascade="save-update"></one-to-one>-->
+
   </class>
 
+  
 </hibernate-mapping>

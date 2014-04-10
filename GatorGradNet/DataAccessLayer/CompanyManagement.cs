@@ -16,7 +16,11 @@ namespace GatorGradNet.DataAccessLayer
         {
             return companyManagementInstance;
         }
-
+        /// <summary>
+        /// Get company details by name
+        /// </summary>
+        /// <param name="company">The company info</param>
+        /// <returns></returns>
         public Company GetCompanyByName(Company company)
         {
             var query = CurrentSession.QueryOver<Company>().Where(c => c.CompanyName == company.CompanyName);

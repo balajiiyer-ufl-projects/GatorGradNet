@@ -79,16 +79,8 @@ namespace GatorGradNet.DataAccessLayer
         }
         public NHibernateLibrary.Entities.ProfileUser GetUserProfile(NHibernateLibrary.Entities.ProfileUser profileUser)
         {
-            //NHibernateLibrary.NHibernateHelper nbh;
+           
             IList<NHibernateLibrary.Entities.ProfileUser> userList;
-
-            //nbh = new NHibernateLibrary.NHibernateHelper();
-            //ISession session = NHibernateLibrary.NHibernateHelper.GetCurrentSession();
-
-            //ITransaction tx = CurrentSession.BeginTransaction();
-            //ICriteria criteria = CurrentSession.CreateCriteria("ProfileUser");
-
-//            IQuery query = CurrentSession.CreateQuery("select * from ProfileUser as p where p.Username = '" + PUser.Username + "'");
             var query = CurrentSession.QueryOver<ProfileUser>().Where(user => user.Username == profileUser.Username);
 
             if (query != null && query.RowCount() > 0)
@@ -99,72 +91,42 @@ namespace GatorGradNet.DataAccessLayer
             }
             return null;
         }
-        /*        public String[] GetUsersByLocation(String Location)
-                {
-                    NHibernateLibrary.NHibernateHelper nbh;
-                    IList<NHibernateLibrary.Entities.ProfileUser> myList;
-
-                    nbh = new NHibernateLibrary.NHibernateHelper();
-                    ISession session = NHibernateLibrary.NHibernateHelper.GetCurrentSession();
-
-                    ITransaction tx = session.BeginTransaction();
-                    ICriteria criteria = session.CreateCriteria("ProfileUser");
-
-                    IQuery query = session.CreateQuery("select p.Username from ProfileUser as p where p.PrevLocation = '" + Location + "'");
-                    myList = query.List<NHibernateLibrary.Entities.ProfileUser>();
-                    //Console.WriteLine(myList.Count());
-                    String[] Usernames = new String[myList.Count()];
-                    for (int i = 0; i < myList.Count(); i++)
-                    {
-                        Usernames[i] = myList[i].ToString();
-                    }
-                    return Usernames;
-                }
-         */
         
-        public String[] GetGators(Criterion Criterion, String Value)
+        public IList<ProfileUser> GetGators(Criterion Criterion, String Value)
         {
-            //NHibernateLibrary.NHibernateHelper nbh;
-            IList<NHibernateLibrary.Entities.ProfileUser> myList;
 
-            //nbh = new NHibernateLibrary.NHibernateHelper();
-            //ISession session = NHibernateLibrary.NHibernateHelper.GetCurrentSession();
+            IList<ProfileUser> userProfiles;
 
-            //ITransaction tx = CurrentSession.BeginTransaction();
-            //ICriteria criteria = CurrentSession.CreateCriteria("ProfileUser");
-
-            //IQuery query = CurrentSession.CreateQuery("select p.Username from ProfileUser as p where p." + Criterion + " = '" + Value + "'");
-            //var query;
-            String[] Usernames = null;
+            //ProfileUser[] userProfiles = null;
             try
             {
                 if (Criterion == Criterion.Location)
                 {
                     var query = CurrentSession.QueryOver<ProfileUser>().Where(user => user.PrevLocation == Value);
-                    myList = query.List<NHibernateLibrary.Entities.ProfileUser>();
+                    userProfiles = query.List<NHibernateLibrary.Entities.ProfileUser>();
                 }
                 else if (Criterion == Criterion.Education)
                 {
                     var query = CurrentSession.QueryOver<ProfileUser>().Where(user => user.PrevEducation == Value);
-                    myList = query.List<NHibernateLibrary.Entities.ProfileUser>();
+                    userProfiles = query.List<NHibernateLibrary.Entities.ProfileUser>();
                 }
                 else
                 {
                     var query = CurrentSession.QueryOver<ProfileUser>().Where(user => user.PrevWork == Value);
-                    myList = query.List<NHibernateLibrary.Entities.ProfileUser>();
+                    userProfiles = query.List<NHibernateLibrary.Entities.ProfileUser>();
                 }
-                //Console.WriteLine(myList.Count());
-                Usernames = new String[myList.Count()];
-                for (int i = 0; i < myList.Count(); i++)
-                {
-                    Usernames[i] = myList[i].ToString();
-                }
+                
+                //userProfiles = new String[myList.Count()];
+                //for (int i = 0; i < myList.Count(); i++)
+                //{
+                //    userProfiles[i] = myList[i].ToString();
+                //}
             }
-            catch (DataLayerException)
+            catch (Exception exception)
             {
-
+                throw new DataLayerException(exception.Message, exception.InnerException);
             }
-            return Usernames;
+            return userProfiles;
         }
     }
 }

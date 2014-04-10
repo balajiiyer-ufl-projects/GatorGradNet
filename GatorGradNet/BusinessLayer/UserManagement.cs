@@ -75,21 +75,21 @@ namespace GatorGradNet.BusinessLayer
             PUser.Username = Username;
             return DataAccessLayer.UserManagement.Instance().GetUserProfile(PUser);
         }
-        public String[] GetGatorsByLocation(String Location)
+        public IList<ProfileUser> GetGatorsByLocation(String Location)
         {
             //NHibernateLibrary.Entities.ProfileUser PUser = new NHibernateLibrary.Entities.ProfileUser();
             //PUser.Username = Username;
 
             return DataAccessLayer.UserManagement.Instance().GetGators(DataAccessLayer.UserManagement.Criterion.Location, Location);
         }
-        public String[] GetGatorsByPreviousEmployment(String Employment)
+        public IList<ProfileUser> GetGatorsByPreviousEmployment(String Employment)
         {
             //NHibernateLibrary.Entities.ProfileUser PUser = new NHibernateLibrary.Entities.ProfileUser();
             //PUser.Username = Username;
         
             return DataAccessLayer.UserManagement.Instance().GetGators(DataAccessLayer.UserManagement.Criterion.Work, Employment);
         }
-        public String[] GetGatorsByPreviousSchool(String Education)
+        public IList<ProfileUser> GetGatorsByPreviousSchool(String Education)
         {
         
             return DataAccessLayer.UserManagement.Instance().GetGators(DataAccessLayer.UserManagement.Criterion.Education, Education);

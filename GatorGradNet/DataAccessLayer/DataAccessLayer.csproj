@@ -31,13 +31,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Iesi.Collections">
-      <HintPath>..\..\..\..\..\..\..\..\Shared\NHibernate\Required_Bins\Iesi.Collections.dll</HintPath>
+      <HintPath>..\GatorGradNetWebLayer\bin\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <HintPath>..\..\..\..\..\..\..\..\Shared\NHibernate\Tests\log4net.dll</HintPath>
+      <HintPath>..\GatorGradNetWebLayer\bin\log4net.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
-      <HintPath>..\..\..\..\..\..\..\..\Shared\NHibernate\Required_Bins\NHibernate.dll</HintPath>
+      <HintPath>..\GatorGradNetWebLayer\bin\NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Oracle.DataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">

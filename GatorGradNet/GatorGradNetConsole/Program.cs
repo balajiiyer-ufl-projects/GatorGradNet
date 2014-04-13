@@ -44,6 +44,8 @@ namespace GatorGradNet
             fs.Close();
             //amyList = aquery.List<Address>();
             Console.WriteLine(amyList.Count());
+            new GatorGradNet.DataAccessLayer.RecruitmentStatistics().StatisticsByYear("amazon");
+            Console.ReadLine();
         }
     }
 }

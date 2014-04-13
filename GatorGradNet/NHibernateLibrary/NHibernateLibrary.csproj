@@ -80,6 +80,7 @@
     <Compile Include="Entities\ProfileUser.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Entities\CompanyByYear.cs" />
     <Compile Include="Entities\Recruitment.cs" />
     <Compile Include="Entities\Salary.cs" />
     <Compile Include="Helper\BaseDataAccess.cs" />
@@ -138,6 +139,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Mapping\Salary.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\CompanyByYear.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

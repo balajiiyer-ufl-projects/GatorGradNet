@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NHibernateLibrary.Entities" assembly="NHibernateLibrary">
+
+  <class name="SalaryVersusHire" table="SALARYVERSUSHIRE" mutable="false">
+
+    <composite-id>
+      <key-property name="AvgSalary" column="AVGSALARY"></key-property>
+      <key-property name="NoOfHires" column="NOOFHIRES" type="Int32"></key-property>
+    </composite-id>
+
+    <property name="AvgSalary" column="AVGSALARY" length="10" precision="2"></property>
+    <property name="NoOfHires" column="NOOFHIRES" type="Int32"></property>
+
+  </class>
+
+</hibernate-mapping>

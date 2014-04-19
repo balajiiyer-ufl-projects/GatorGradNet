@@ -17,7 +17,7 @@ namespace NHibernateLibrary.Entities
         public virtual String FirstName { get; set; }
         public virtual String LastName { get; set; }
         public virtual String Branch { get; set; }
-        public virtual int GPA { get; set; }
+        public virtual float GPA { get; set; }
         public virtual String PrevEducation { get; set; }
         public virtual String PrevWork { get; set; }
         public virtual String PrevLocation { get; set; }

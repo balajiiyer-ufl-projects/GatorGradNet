@@ -14,6 +14,15 @@ namespace GatorGradNet.DataAccessLayer
 {
     public class RecruitmentStatistics : BaseDataAccess<Recruitment, Int64>
     {
+
+        private static RecruitmentStatistics recStatsInstance = new RecruitmentStatistics();
+
+        public static RecruitmentStatistics Instance()
+        {
+
+            return recStatsInstance;
+        }
+
 /*        public String[] GetCompaniesBySalary()
         {
             String[] Companies;
@@ -34,7 +43,7 @@ namespace GatorGradNet.DataAccessLayer
 
         }
  */
-        public void StatisticsByYear(String CompanyName)
+        public void StatisticsByYear(String CompanyName, String FileLocation)
         {
             IList<NHibernateLibrary.Entities.Company> companyList = null;
             var tempquery = CurrentSession.QueryOver<Company>().Where(company => company.CompanyName == CompanyName);
@@ -56,7 +65,7 @@ namespace GatorGradNet.DataAccessLayer
             //string q=query.ToString();
             //int row = query.RowCount();
             
-            FileInfo fi = new FileInfo("C:\\data.txt");
+            FileInfo fi = new FileInfo(FileLocation);
             // Actually create the file.
             FileStream fs = fi.Create();
             fs.Close();
@@ -71,7 +80,7 @@ namespace GatorGradNet.DataAccessLayer
 
         }
 
-        public void CompanyNameSalary(String Designation)
+        public void CompanyNameSalary(String Designation, String FileLocation)
         {
             IList<NHibernateLibrary.Entities.Designations> designationList = null;
             var tempquery = CurrentSession.QueryOver<Designations>().Where(designations => designations.Designation == Designation);
@@ -94,7 +103,7 @@ namespace GatorGradNet.DataAccessLayer
             //string q=query.ToString();
             //int row = query.RowCount();
 
-            FileInfo fi = new FileInfo("C:\\csldata.txt");
+            FileInfo fi = new FileInfo(FileLocation);
             // Actually create the file.
             FileStream fs = fi.Create();
             fs.Close();
@@ -108,7 +117,7 @@ namespace GatorGradNet.DataAccessLayer
             Console.WriteLine(companysalaryList.Count());
 
         }
-        public void CompanyTotalHires()
+        public void CompanyTotalHires(String FileLocation)
         {
             IList<CompanyTotalHires> companysalaryList = null;
             //var query = CurrentSession.QueryOver<Recruitment>().Where(recruitment => recruitment.CompanyDesignationId.CompanyId.Id == companyID).SelectList(list => list.SelectGroup(recruitment => recruitment.Year).SelectSum(recruitment => recruitment.NoOfHires));
@@ -118,7 +127,7 @@ namespace GatorGradNet.DataAccessLayer
             //string q=query.ToString();
             //int row = query.RowCount();
 
-            FileInfo fi = new FileInfo("C:\\cthdata.txt");
+            FileInfo fi = new FileInfo(FileLocation);
             // Actually create the file.
             FileStream fs = fi.Create();
             fs.Close();
@@ -132,7 +141,7 @@ namespace GatorGradNet.DataAccessLayer
             Console.WriteLine(companysalaryList.Count());
 
         }
-        public void DesignationAverageSalary()
+        public void DesignationAverageSalary(String FileLocation)
         {
             IList<DesignationAvgSalary> dasList = null;
             //var query = CurrentSession.QueryOver<Recruitment>().Where(recruitment => recruitment.CompanyDesignationId.CompanyId.Id == companyID).SelectList(list => list.SelectGroup(recruitment => recruitment.Year).SelectSum(recruitment => recruitment.NoOfHires));
@@ -142,7 +151,7 @@ namespace GatorGradNet.DataAccessLayer
             //string q=query.ToString();
             //int row = query.RowCount();
 
-            FileInfo fi = new FileInfo("C:\\dasdata.txt");
+            FileInfo fi = new FileInfo(FileLocation);
             // Actually create the file.
             FileStream fs = fi.Create();
             fs.Close();
@@ -156,7 +165,7 @@ namespace GatorGradNet.DataAccessLayer
             Console.WriteLine(dasList.Count());
 
         }
-        public void ShowDesignationByHires()
+        public void ShowDesignationByHires(String FileLocation)
         {
             IList<DesignationByHires> dbhList = null;
             //var query = CurrentSession.QueryOver<Recruitment>().Where(recruitment => recruitment.CompanyDesignationId.CompanyId.Id == companyID).SelectList(list => list.SelectGroup(recruitment => recruitment.Year).SelectSum(recruitment => recruitment.NoOfHires));
@@ -166,7 +175,7 @@ namespace GatorGradNet.DataAccessLayer
             //string q=query.ToString();
             //int row = query.RowCount();
 
-            FileInfo fi = new FileInfo("C:\\dbhdata.txt");
+            FileInfo fi = new FileInfo(FileLocation);
             // Actually create the file.
             FileStream fs = fi.Create();
             fs.Close();
@@ -180,7 +189,7 @@ namespace GatorGradNet.DataAccessLayer
             Console.WriteLine(dbhList.Count());
 
         }
-        public void ShowMaxRecruitmentEachYear(int year)
+        public void ShowMaxRecruitmentEachYear(int year, String FileLocation)
         {
             IList<MaxRecruitmentEachYear> mreyList = null;
             //var query = CurrentSession.QueryOver<Recruitment>().Where(recruitment => recruitment.CompanyDesignationId.CompanyId.Id == companyID).SelectList(list => list.SelectGroup(recruitment => recruitment.Year).SelectSum(recruitment => recruitment.NoOfHires));
@@ -190,7 +199,7 @@ namespace GatorGradNet.DataAccessLayer
             //string q=query.ToString();
             //int row = query.RowCount();
 
-            FileInfo fi = new FileInfo("C:\\mreydata.txt");
+            FileInfo fi = new FileInfo(FileLocation);
             // Actually create the file.
             FileStream fs = fi.Create();
             fs.Close();
@@ -204,7 +213,7 @@ namespace GatorGradNet.DataAccessLayer
             Console.WriteLine(mreyList.Count());
 
         }
-        public void ShowSalaryVersusHire()
+        public void ShowSalaryVersusHire(String FileLocation)
         {
             IList<SalaryVersusHire> svhList = null;
             //var query = CurrentSession.QueryOver<Recruitment>().Where(recruitment => recruitment.CompanyDesignationId.CompanyId.Id == companyID).SelectList(list => list.SelectGroup(recruitment => recruitment.Year).SelectSum(recruitment => recruitment.NoOfHires));
@@ -214,7 +223,7 @@ namespace GatorGradNet.DataAccessLayer
             //string q=query.ToString();
             //int row = query.RowCount();
 
-            FileInfo fi = new FileInfo("C:\\svhdata.txt");
+            FileInfo fi = new FileInfo(FileLocation);
             // Actually create the file.
             FileStream fs = fi.Create();
             fs.Close();

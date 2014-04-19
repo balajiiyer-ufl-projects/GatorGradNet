@@ -44,7 +44,17 @@ namespace GatorGradNet
             //fs.Close();
             //amyList = aquery.List<Address>();
             Console.WriteLine(amyList.Count());
+<<<<<<< HEAD
+            //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().StatisticsByYear("microsoft");
+            //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().CompanyNameSalary("software development engineer");
+            //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().CompanyTotalHires();
+            //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().DesignationAverageSalary();
+            //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().ShowDesignationByHires();
+            //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().ShowMaxRecruitmentEachYear(2012);
+            //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().ShowSalaryVersusHire();
+=======
             new GatorGradNet.DataAccessLayer.RecruitmentStatistics().StatisticsByYear("amazon");
+>>>>>>> 75863bf4aee58bb692aadc410bf240465a7c3196
             Console.ReadLine();
         }
     }

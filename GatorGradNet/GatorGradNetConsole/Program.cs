@@ -29,21 +29,22 @@ namespace GatorGradNet
             //IQuery query = session.CreateQuery("select c from Customer as c");
             //myList = query.List<Customer>();
 
-            ICriteria addCriteria = session.CreateCriteria(typeof(Address));
-            IQuery aquery = session.CreateQuery("select a from Address as a");
-            amyList = session.Query<Address>().ToList();
-           FileInfo fi = new FileInfo("C:\\temp.txt");
+            //ICriteria addCriteria = session.CreateCriteria(typeof(Address));
+            //IQuery aquery = session.CreateQuery("select a from Address as a");
+            //amyList = session.Query<Address>().ToList();
+           //FileInfo fi = new FileInfo("C:\\temp.txt");
             // Actually create the file.
-            FileStream fs = fi.Create();
-            fs.Close();
+            //FileStream fs = fi.Create();
+            //fs.Close();
             
              // Delete the file.
             //fi.Delete();
-            Utils<Address>.WriteDelimitedFile(amyList, fi, "\t");
+            //Utils<Address>.WriteDelimitedFile(amyList, fi, "\t");
                // Modify the file as required, and then close the file.
-            fs.Close();
+            //fs.Close();
             //amyList = aquery.List<Address>();
             Console.WriteLine(amyList.Count());
+<<<<<<< HEAD
             //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().StatisticsByYear("microsoft");
             //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().CompanyNameSalary("software development engineer");
             //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().CompanyTotalHires();
@@ -51,6 +52,9 @@ namespace GatorGradNet
             //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().ShowDesignationByHires();
             //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().ShowMaxRecruitmentEachYear(2012);
             //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().ShowSalaryVersusHire();
+=======
+            new GatorGradNet.DataAccessLayer.RecruitmentStatistics().StatisticsByYear("amazon");
+>>>>>>> 75863bf4aee58bb692aadc410bf240465a7c3196
             Console.ReadLine();
         }
     }

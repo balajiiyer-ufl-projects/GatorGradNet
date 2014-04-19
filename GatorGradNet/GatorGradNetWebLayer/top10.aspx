@@ -58,7 +58,8 @@
                           .attr("height", height)
                           .append("g")
                           .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-                d3.csv("pieData.csv", function (error, data) {
+                var fileName = "Statistics/pieData.csv";
+                d3.csv(fileName, function (error, data) {
 
                     data.forEach(function (d) {
                         d.population = +d.population;

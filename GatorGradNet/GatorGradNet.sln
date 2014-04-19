@@ -13,7 +13,26 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateLibrary", "NHibernateLibrary\NHibernateLibrary.csproj", "{87AE8A64-15BF-498B-AB3E-4D49DB2F60DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GatorGradNetWebLayer", "GatorGradNetWebLayer\GatorGradNetWebLayer.csproj", "{FF38EF02-F5C2-4653-869D-1F76990370F3}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GatorGradNetWebLayer(1)", "http://localhost:7073", "{0A41DE43-B0DA-440C-8585-7EC0ADBAA08D}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_7073"
+		Debug.AspNetCompiler.PhysicalPath = "GatorGradNetWebLayer\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_7073\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_7073"
+		Release.AspNetCompiler.PhysicalPath = "GatorGradNetWebLayer\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_7073\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "GatorGradNetWebLayer\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +60,10 @@ Global
 		{87AE8A64-15BF-498B-AB3E-4D49DB2F60DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87AE8A64-15BF-498B-AB3E-4D49DB2F60DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87AE8A64-15BF-498B-AB3E-4D49DB2F60DD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF38EF02-F5C2-4653-869D-1F76990370F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF38EF02-F5C2-4653-869D-1F76990370F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF38EF02-F5C2-4653-869D-1F76990370F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF38EF02-F5C2-4653-869D-1F76990370F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A41DE43-B0DA-440C-8585-7EC0ADBAA08D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A41DE43-B0DA-440C-8585-7EC0ADBAA08D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A41DE43-B0DA-440C-8585-7EC0ADBAA08D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A41DE43-B0DA-440C-8585-7EC0ADBAA08D}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,7 +11,8 @@ namespace GatorGradNet
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            BusinessLayer.RecruitmentStatistics rs = new BusinessLayer.RecruitmentStatistics();
+            rs.YearVsSalary("Amazon");
         }
     }
 }

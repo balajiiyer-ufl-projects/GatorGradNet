@@ -64,10 +64,11 @@ namespace NHibernateLibrary.Helper
         public void SaveOrUpdate(TEntity entity)
         {
             TIdentifier identifier = new TIdentifier();
-            using (TransactionScope transaction = new TransactionScope(TransactionScopeOption.Required))
+            using (ITransaction transaction = CurrentSession.BeginTransaction())
             {
                 CurrentSession.SaveOrUpdate(entity);
-                transaction.Complete();
+                //CurrentSession.Flush();
+                transaction.Commit();
             }
         }
  

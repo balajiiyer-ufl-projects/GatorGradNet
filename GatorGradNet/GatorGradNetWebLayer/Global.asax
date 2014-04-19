@@ -4,21 +4,13 @@
 
     void Application_Start(object sender, EventArgs e) 
     {
-        // Code that runs on application startup
-        string JQueryVer = "1.7.1";
-        ScriptManager.ScriptResourceMapping.AddDefinition("jquery", new ScriptResourceDefinition
-        {
-            Path = "~/Scripts/jquery-" + JQueryVer + ".min.js",
-            DebugPath = "~/Scripts/jquery-" + JQueryVer + ".js",
-            CdnPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-" + JQueryVer + ".min.js",
-            CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-" + JQueryVer + ".js",
-            CdnSupportsSecureConnection = true,
-            LoadSuccessExpression = "window.jQuery"
-        });
+        NHibernateLibrary.Helper.NHibernateHelper.OpenSession();
+        NHibernateLibrary.Helper.NHibernateHelper.OpenSession().FlushMode = NHibernate.FlushMode.Commit;
     }
     
     void Application_End(object sender, EventArgs e) 
     {
+        NHibernateLibrary.Helper.NHibernateHelper.CloseSession();
         //  Code that runs on application shutdown
 
     }

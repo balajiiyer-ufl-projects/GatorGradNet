@@ -45,8 +45,9 @@ namespace NHibernateLibrary.Helper
         /// <returns>Opened ISession.</returns>
         public static ISession OpenSession()
         {
+            
             return SessionFactory.OpenSession();
-
+            
         }
         /// <summary>
         /// Create an ISession and bind it to the current tNHibernate Context.
@@ -54,6 +55,7 @@ namespace NHibernateLibrary.Helper
         public static void CreateSession()
         {
             CurrentSessionContext.Bind(OpenSession());
+        
         }
 
         /// <summary>
@@ -78,8 +80,10 @@ namespace NHibernateLibrary.Helper
 
             if (!CurrentSessionContext.HasBind(SessionFactory))
             {
+                //SessionFactory.OpenSession().FlushMode = FlushMode.Commit;
                 CurrentSessionContext.Bind(SessionFactory.OpenSession());
             }
+            //SessionFactory.GetCurrentSession().FlushMode = FlushMode.Commit;
             return SessionFactory.GetCurrentSession();
         }
     }

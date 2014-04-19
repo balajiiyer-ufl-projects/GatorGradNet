@@ -227,7 +227,7 @@
         <tr>
             <td class="auto-style17">&nbsp;</td>
             <td class="auto-style19">
-                <asp:Button ID="btnUpdate" runat="server" Text="Update" Height="29px" Width="97px" />
+                <asp:Button ID="btnUpdate" runat="server" Text="Update" Height="29px" Width="97px" OnClick="btnUpdate_Click" />
             </td>
             <td class="auto-style14">
                

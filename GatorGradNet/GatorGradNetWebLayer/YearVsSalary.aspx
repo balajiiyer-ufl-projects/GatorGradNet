@@ -46,20 +46,20 @@
   <script src="http://dimplejs.org/dist/dimple.v1.1.5.min.js"></script>
   <script type="text/javascript">
       var svg = dimple.newSvg("#chartContainer", 1200, 500);
-      d3.tsv("data.tsv", function (data) {
+      d3.tsv("Statistics/data.tsv", function (data) {
 
 
           // Create and Position a Chart
           var myChart = new dimple.chart(svg, data);
           //myChart.setBounds(60, 30, 500, 300);
-          var x = myChart.addCategoryAxis("x", "date");
-          myChart.addMeasureAxis("y", "hires");
+          var x = myChart.addCategoryAxis("x", "Year");
+          myChart.addMeasureAxis("y", "TotalHires");
 
           // Order the x axis by date
-          x.addOrderRule("date");
+          x.addOrderRule("Year");
 
           // Min price will be green, middle price yellow and max red
-          myChart.addColorAxis("hires", ["red", "yellow", "green"]);
+          myChart.addColorAxis("TotalHires", ["red", "yellow", "green"]);
 
           // Add a thick line with markers
           var lines = myChart.addSeries(null, dimple.plot.line);

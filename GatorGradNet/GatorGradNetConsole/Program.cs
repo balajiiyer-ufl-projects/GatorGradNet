@@ -43,18 +43,8 @@ namespace GatorGradNet
                // Modify the file as required, and then close the file.
             //fs.Close();
             //amyList = aquery.List<Address>();
-            //Console.WriteLine(amyList.Count());
-            //Int64 id = 294;
-            //ProfileUser user = session.Get<ProfileUser>(id);
-            //user.FirstName = "ManipalReddy";
-            //NHibernateLibrary.Helper.NHibernateHelper.GetCurrentSession().Flush();
-            //DataAccessLayer.UserManagement.Instance().UpdateUserProfile(user);
-            //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().StatisticsByYear("amazon");
-            //ProfileUser user1 = session.Get<ProfileUser>(id);
-            Random random = new Random();
-            int code = random.Next(1000, 100000000);
-            MailProvider.Instance().MailSend(code, "b.manipalreddy@gmail.com", "Manipal");
-
+            Console.WriteLine(amyList.Count());
+            new GatorGradNet.DataAccessLayer.RecruitmentStatistics().StatisticsByYear("amazon");
             Console.ReadLine();
         }
     }

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NHibernateLibrary.Entities" assembly="NHibernateLibrary">
+
+  <class name="DesignationAvgSalary" table="DESIGNATIONAVGSALARY" mutable="false">
+
+    <composite-id>
+      <key-property name="Designation" column="DESIGNATION" length="100"></key-property>
+      <key-property name="AvgSalary" column="AVERAGESALARY"></key-property>
+    </composite-id>
+
+    <property name="Designation" column="DESIGNATION" length="100"></property>
+    <property name="AvgSalary" column="AVERAGESALARY" length="10" precision="2"></property>
+
+  </class>
+
+</hibernate-mapping>

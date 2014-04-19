@@ -81,7 +81,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Entities\CompanyByYear.cs" />
+    <Compile Include="Entities\CompanyTotalHires.cs" />
+    <Compile Include="Entities\DesignationByHires.cs" />
+    <Compile Include="Entities\MaxRecruitmentEachYear.cs" />
     <Compile Include="Entities\Recruitment.cs" />
+    <Compile Include="Entities\CompanySalary.cs" />
+    <Compile Include="Entities\DesignationAvgSalary.cs" />
+    <Compile Include="Entities\SalaryVersusHire.cs" />
     <Compile Include="Entities\Salary.cs" />
     <Compile Include="Helper\BaseDataAccess.cs" />
     <Compile Include="Helper\BaseEntity.cs" />
@@ -144,6 +150,36 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mapping\CompanyByYear.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\CompanySalary.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\CompanyTotalHires.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\DesignationAvgSalary.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\DesignationByHires.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\MaxRecruitmentEachYear.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\SalaryVersusHire.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

@@ -70,5 +70,163 @@ namespace GatorGradNet.DataAccessLayer
             Console.WriteLine(recruitmentList.Count());
 
         }
+
+        public void CompanyNameSalary(String Designation)
+        {
+            IList<NHibernateLibrary.Entities.Designations> designationList = null;
+            var tempquery = CurrentSession.QueryOver<Designations>().Where(designations => designations.Designation == Designation);
+            Int64 designationID;
+            if (tempquery != null && tempquery.RowCount() > 0)
+            {
+                designationList = tempquery.List<NHibernateLibrary.Entities.Designations>();
+                designationID = designationList[0].Id;
+                //Console.WriteLine(designationID + " dID");
+            }
+            else
+            {
+                return;
+            }
+            IList<CompanySalary> companysalaryList = null;
+            //var query = CurrentSession.QueryOver<Recruitment>().Where(recruitment => recruitment.CompanyDesignationId.CompanyId.Id == companyID).SelectList(list => list.SelectGroup(recruitment => recruitment.Year).SelectSum(recruitment => recruitment.NoOfHires));
+            var query = CurrentSession.QueryOver<CompanySalary>().Where(companysalary => companysalary.DesignationID == designationID);//.Select(companybyyear => companybyyear.Year, companybyyear => companybyyear.TotalHires);
+            companysalaryList = query.List<CompanySalary>();
+
+            //string q=query.ToString();
+            //int row = query.RowCount();
+
+            FileInfo fi = new FileInfo("C:\\csldata.txt");
+            // Actually create the file.
+            FileStream fs = fi.Create();
+            fs.Close();
+
+            // Delete the file.
+            //fi.Delete();
+            Utils<CompanySalary>.WriteDelimitedFile(companysalaryList, fi, "\t", "CompanyID", "DesignationID");
+            // Modify the file as required, and then close the file.
+            fs.Close();
+            //amyList = aquery.List<Address>();
+            Console.WriteLine(companysalaryList.Count());
+
+        }
+        public void CompanyTotalHires()
+        {
+            IList<CompanyTotalHires> companysalaryList = null;
+            //var query = CurrentSession.QueryOver<Recruitment>().Where(recruitment => recruitment.CompanyDesignationId.CompanyId.Id == companyID).SelectList(list => list.SelectGroup(recruitment => recruitment.Year).SelectSum(recruitment => recruitment.NoOfHires));
+            var query = CurrentSession.QueryOver<CompanyTotalHires>().OrderBy(cth => cth.NoOfHires).Desc;
+            companysalaryList = query.List<CompanyTotalHires>();
+
+            //string q=query.ToString();
+            //int row = query.RowCount();
+
+            FileInfo fi = new FileInfo("C:\\cthdata.txt");
+            // Actually create the file.
+            FileStream fs = fi.Create();
+            fs.Close();
+
+            // Delete the file.
+            //fi.Delete();
+            Utils<CompanyTotalHires>.WriteDelimitedFile(companysalaryList, fi, "\t");
+            // Modify the file as required, and then close the file.
+            fs.Close();
+            //amyList = aquery.List<Address>();
+            Console.WriteLine(companysalaryList.Count());
+
+        }
+        public void DesignationAverageSalary()
+        {
+            IList<DesignationAvgSalary> dasList = null;
+            //var query = CurrentSession.QueryOver<Recruitment>().Where(recruitment => recruitment.CompanyDesignationId.CompanyId.Id == companyID).SelectList(list => list.SelectGroup(recruitment => recruitment.Year).SelectSum(recruitment => recruitment.NoOfHires));
+            var query = CurrentSession.QueryOver<DesignationAvgSalary>().OrderBy(das => das.AvgSalary).Desc;
+            dasList = query.List<DesignationAvgSalary>();
+
+            //string q=query.ToString();
+            //int row = query.RowCount();
+
+            FileInfo fi = new FileInfo("C:\\dasdata.txt");
+            // Actually create the file.
+            FileStream fs = fi.Create();
+            fs.Close();
+
+            // Delete the file.
+            //fi.Delete();
+            Utils<DesignationAvgSalary>.WriteDelimitedFile(dasList, fi, "\t");
+            // Modify the file as required, and then close the file.
+            fs.Close();
+            //amyList = aquery.List<Address>();
+            Console.WriteLine(dasList.Count());
+
+        }
+        public void ShowDesignationByHires()
+        {
+            IList<DesignationByHires> dbhList = null;
+            //var query = CurrentSession.QueryOver<Recruitment>().Where(recruitment => recruitment.CompanyDesignationId.CompanyId.Id == companyID).SelectList(list => list.SelectGroup(recruitment => recruitment.Year).SelectSum(recruitment => recruitment.NoOfHires));
+            var query = CurrentSession.QueryOver<DesignationByHires>().OrderBy(dbh => dbh.NoOfHires).Desc;
+            dbhList = query.List<DesignationByHires>();
+
+            //string q=query.ToString();
+            //int row = query.RowCount();
+
+            FileInfo fi = new FileInfo("C:\\dbhdata.txt");
+            // Actually create the file.
+            FileStream fs = fi.Create();
+            fs.Close();
+
+            // Delete the file.
+            //fi.Delete();
+            Utils<DesignationByHires>.WriteDelimitedFile(dbhList, fi, "\t");
+            // Modify the file as required, and then close the file.
+            fs.Close();
+            //amyList = aquery.List<Address>();
+            Console.WriteLine(dbhList.Count());
+
+        }
+        public void ShowMaxRecruitmentEachYear(int year)
+        {
+            IList<MaxRecruitmentEachYear> mreyList = null;
+            //var query = CurrentSession.QueryOver<Recruitment>().Where(recruitment => recruitment.CompanyDesignationId.CompanyId.Id == companyID).SelectList(list => list.SelectGroup(recruitment => recruitment.Year).SelectSum(recruitment => recruitment.NoOfHires));
+            var query = CurrentSession.QueryOver<MaxRecruitmentEachYear>().Where(mrey => mrey.Year == year).OrderBy(mrey => mrey.NoOfHires).Desc;
+            mreyList = query.List<MaxRecruitmentEachYear>();
+
+            //string q=query.ToString();
+            //int row = query.RowCount();
+
+            FileInfo fi = new FileInfo("C:\\mreydata.txt");
+            // Actually create the file.
+            FileStream fs = fi.Create();
+            fs.Close();
+
+            // Delete the file.
+            //fi.Delete();
+            Utils<MaxRecruitmentEachYear>.WriteDelimitedFile(mreyList, fi, "\t");
+            // Modify the file as required, and then close the file.
+            fs.Close();
+            //amyList = aquery.List<Address>();
+            Console.WriteLine(mreyList.Count());
+
+        }
+        public void ShowSalaryVersusHire()
+        {
+            IList<SalaryVersusHire> svhList = null;
+            //var query = CurrentSession.QueryOver<Recruitment>().Where(recruitment => recruitment.CompanyDesignationId.CompanyId.Id == companyID).SelectList(list => list.SelectGroup(recruitment => recruitment.Year).SelectSum(recruitment => recruitment.NoOfHires));
+            var query = CurrentSession.QueryOver<SalaryVersusHire>().OrderBy(svh => svh.AvgSalary).Asc;
+            svhList = query.List<SalaryVersusHire>();
+
+            //string q=query.ToString();
+            //int row = query.RowCount();
+
+            FileInfo fi = new FileInfo("C:\\svhdata.txt");
+            // Actually create the file.
+            FileStream fs = fi.Create();
+            fs.Close();
+
+            // Delete the file.
+            //fi.Delete();
+            Utils<SalaryVersusHire>.WriteDelimitedFile(svhList, fi, "\t");
+            // Modify the file as required, and then close the file.
+            fs.Close();
+            //amyList = aquery.List<Address>();
+            Console.WriteLine(svhList.Count());
+
+        }
     }
 }

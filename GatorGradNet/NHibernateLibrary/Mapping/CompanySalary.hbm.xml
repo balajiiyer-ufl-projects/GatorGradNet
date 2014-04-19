@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NHibernateLibrary.Entities" assembly="NHibernateLibrary">
+
+  <class name="CompanySalary" table="COMPANYSALARY" mutable="false">
+
+    <composite-id>
+      <key-property name="CompanyID" column="COMPANYID" type="Int64"></key-property>
+      <key-property name="DesignationID" column="DESIGNATIONID" type="Int64"></key-property>
+    </composite-id>
+
+    <property name="CompanyID" column="COMPANYID" type="Int64"></property>
+    <property name="DesignationID" column="DESIGNATIONID" type="Int64"></property>
+    <property name="CompanyName" column="COMPANYNAME" length="50"></property>
+    <property name="AvgSalary" column="AVGSALARY" length="10" precision="2"></property>
+
+  </class>
+
+</hibernate-mapping>

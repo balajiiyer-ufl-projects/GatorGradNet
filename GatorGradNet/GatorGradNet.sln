@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateLibrary", "NHibernateLibrary\NHibernateLibrary.csproj", "{87AE8A64-15BF-498B-AB3E-4D49DB2F60DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GatorGradNetWebLayer", "GatorGradNetWebLayer\GatorGradNetWebLayer.csproj", "{FF38EF02-F5C2-4653-869D-1F76990370F3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{87AE8A64-15BF-498B-AB3E-4D49DB2F60DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87AE8A64-15BF-498B-AB3E-4D49DB2F60DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87AE8A64-15BF-498B-AB3E-4D49DB2F60DD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF38EF02-F5C2-4653-869D-1F76990370F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF38EF02-F5C2-4653-869D-1F76990370F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF38EF02-F5C2-4653-869D-1F76990370F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF38EF02-F5C2-4653-869D-1F76990370F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

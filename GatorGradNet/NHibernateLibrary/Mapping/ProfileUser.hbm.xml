@@ -14,7 +14,7 @@
     <property name="FirstName" column="FIRSTNAME" type="String" length="30" ></property>
     <property name="LastName" column="LASTNAME" type="String" length="30" ></property>
     <property name="Branch" column="BRANCH" type="String" length="50" ></property>
-    <property name="GPA" column="GPA" type="Int32"></property>
+    <property name="GPA" column="GPA"></property>
     <property name="PrevEducation" column="PREVEDUCATION" type="String" length="100" ></property>
     <property name="PrevWork" column="PREVWORK" type="String" length="100" ></property>
     <property name="PrevLocation" column="PREVLOCATION" type="String" length="100" ></property>

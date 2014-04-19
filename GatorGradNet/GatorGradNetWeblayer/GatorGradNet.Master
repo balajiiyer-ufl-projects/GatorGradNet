@@ -1,0 +1,213 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="GatorGradNet.master.cs" Inherits="GatorGradNet.GatorGradNet" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>GatorGradNet</title>
+    <link rel="icon" type="image/png" href="/images/G.png" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="viewport" content="width=1040" />
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Arvo:700" rel="stylesheet" type="text/css" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+	    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>	
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+        <script type="text/javascript" src="d3/d3.js"></script>
+
+         <!-- Add mousewheel plugin (this is optional) -->
+        <script type="text/javascript" src="/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+        <!-- Add fancyBox -->
+        <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+        <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+        <!-- Optionally add helpers - button, thumbnail and/or media -->
+        <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+        <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+        <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+        <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+        <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#aboutus").fancybox({
+                    'type': 'iframe'
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            function logout() {
+                $("#Button1").click();
+            }
+        </script>
+        
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="homepage">
+    <form id="form1" runat="server">
+    <div>
+        <!-- Header Wrapper -->
+			<div id="header-wrapper">   
+						
+				<!-- Header -->
+					<div id="header" class="container">
+						
+						<!-- Logo -->
+							<h1><a href="#">Gator Grad Net</a></h1>
+						
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li><a class="fa fa-dashboard" href="Default.aspx"><span>Dashboard</span></a></li>
+									<li>
+										<a href="#" class="fa fa-bar-chart-o"><span>Hire Trends</span></a>
+                                        <ul>
+													<li><a class="fa fa-external-link-square" href="yearVsSalary.aspx">&nbsp Year vs Salary</a></li>
+													<li><a class="fa fa-dot-circle-o" href="top10.aspx">&nbsp Top 10 Recruiters</a></li>
+												</ul>
+									</li>
+									<li><a class="fa fa-bolt" href="AdvancedSearch.aspx"><span>Advanced Search</span></a></li>
+									<li><a class="fa fa-user"><span>
+                                        <asp:Label ID="user" runat="server" Text="User"></asp:Label></span></a>
+                                        <ul>
+                                            <li><a class="fa fa-cogs" href="#" >&nbsp Settings</a>
+                                                <ul>
+													<li><a class="fa fa-key" href="ResetPassword.aspx">&nbsp Reset Password</a></li>
+													<li><a class="fa fa-wrench" href="Updation.aspx">&nbsp Update Profile</a></li>
+												</ul>
+                                            </li>
+											<li><a class="fa fa-sign-out" onclick="logout();">&nbsp Logout</a></li>
+                                           
+                                            <li><a class="fa fa-align-justify" onclick="$('#aboutus').click();">&nbsp About Us</a></li>
+                                        </ul>
+                                    </li>
+								</ul>
+							</nav>
+
+					</div>
+
+			</div>
+			
+	
+		<!-- Main Wrapper -->
+			<div id="main-wrapper">
+
+				<!-- Main -->
+					<div id="main" class="container">
+						<div class="row">
+						
+							<!-- Content -->
+								<div id="content" class="8u">
+
+									<asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+                                    </asp:ContentPlaceHolder>
+								
+								</div>
+								
+							<!-- Sidebar -->
+								
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Footer Wrapper -->
+			<div id="footer-wrapper">
+
+				<!-- Footer -->
+					<div id="footer" class="container">
+						<header>
+							<h2>Questions or comments? <strong>Get in touch:</strong></h2>
+						</header>
+						<div class="row">
+							<div class="6u">
+								<section>
+                                            <asp:Button ID="Button1" runat="server" Text="Button" style="display:none" OnClick="Button1_Click" CausesValidation="false"/>
+                                            <form method="post" action="#">
+										<div class="row half">
+											<div class="6u">
+												<input name="name" placeholder="Name" type="text" class="text" />
+											</div>
+											<div class="6u">
+												<input name="email" placeholder="Email" type="text" class="text" />
+											</div>
+										</div>
+										<div class="row half">
+											<div class="12u">
+												<textarea name="message" placeholder="Message"></textarea>
+											</div>
+										</div>
+										<div class="row half">
+											<div class="12u">
+												<a href="#" class="button button-icon fa fa-envelope">Send Message</a>
+											</div>
+										</div>
+									</form>
+								</section>
+							</div>
+							<div class="6u">
+								<section>
+									<p>Our Gator Grad Net website is still in the process of reaching perfection. We might have overlooked 
+                                        into any feature, we need your help to achieve completion. Please gives us your suggestions to make
+                                        it better.
+									</p>
+									<div class="row">
+										<ul class="icons 6u">
+											<li class="fa fa-home">
+												3800, SW 34th Street <br />
+												Gainesville FL 32608<br />
+												USA
+											</li>
+											<li class="fa fa-phone">
+												(352) 870-3247
+											</li>
+											<li class="fa fa-envelope">
+												<a href="#">b.manipalreddy@gmail.com</a>
+											</li>
+										</ul>
+										<ul class="icons 6u">
+											<li class="fa fa-twitter">
+												<a href="http://twitter.com/n33co">@untitled-tld</a>
+											</li>
+											<li class="fa fa-facebook">
+												<a href="#">facebook.com/untitled-tld</a>
+											</li>
+											<li class="fa fa-google-plus">
+												<a href="#">google.com/+untitled-tld</a>
+											</li>
+										</ul>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+
+				<!-- Copyright -->
+					<div id="copyright" class="container">
+						<ul class="links">
+							<li>&copy; Untitled. All rights reserved</li>
+							<li>Design: <a href="http://html5up.net/">HTML5 UP</a></li>
+						</ul>
+					</div>
+
+			</div>
+        
+    </div>
+    <a id="aboutus" href="AboutUs.aspx" style="display:none">About Us</a>
+    </form>
+</body>
+</html>
+

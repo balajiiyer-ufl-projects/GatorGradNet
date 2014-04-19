@@ -141,6 +141,17 @@ namespace GatorGradNet.DataAccessLayer
             Console.WriteLine(companysalaryList.Count());
 
         }
+
+
+        public IList<CompanyTotalHires> CompanyTotalHires()
+        {
+            IList<CompanyTotalHires> companysalaryList = null;
+            //var query = CurrentSession.QueryOver<Recruitment>().Where(recruitment => recruitment.CompanyDesignationId.CompanyId.Id == companyID).SelectList(list => list.SelectGroup(recruitment => recruitment.Year).SelectSum(recruitment => recruitment.NoOfHires));
+            var query = CurrentSession.QueryOver<CompanyTotalHires>().OrderBy(cth => cth.NoOfHires).Desc.Take(10);
+            companysalaryList = query.List<CompanyTotalHires>();
+            return companysalaryList;
+
+        }
         public void DesignationAverageSalary(String FileLocation)
         {
             IList<DesignationAvgSalary> dasList = null;

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using NHibernateLibrary.Entities;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +23,13 @@ namespace GatorGradNet.BusinessLayer
         {
             DataAccessLayer.RecruitmentStatistics.Instance().CompanyTotalHires(FileLocation);
         }
+
+        public IList<CompanyTotalHires> CompanyTotalHires()
+        {
+                    
+           return DataAccessLayer.RecruitmentStatistics.Instance().CompanyTotalHires();
+        }
+
         public void DesignationAverageSalary(String FileLocation)
         {
             DataAccessLayer.RecruitmentStatistics.Instance().DesignationAverageSalary(FileLocation);

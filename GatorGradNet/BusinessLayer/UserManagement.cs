@@ -60,18 +60,33 @@ namespace GatorGradNet.BusinessLayer
         public bool UpdateUserProfile(String Username, String FirstName, String LastName, String Password, String Email, String PrevEducation, String PrevWork, String PrevLocation, String CurrentWork, float GPA, String DreamCompany,String Branch)
         {
 
-            ProfileUser user = BusinessLayer.UserManagement.Instance().GetUserProfile(Username);
-            if(!String.IsNullOrEmpty(FirstName))user.FirstName = FirstName;
-            if (!String.IsNullOrEmpty(LastName)) user.LastName = LastName;
-            if (!String.IsNullOrEmpty(Password)) user.Password = Password;
-            if (!String.IsNullOrEmpty(Email)) user.Email = Email;
-            if (!String.IsNullOrEmpty(PrevEducation)) user.PrevEducation = PrevEducation;
-            if (!String.IsNullOrEmpty(PrevWork)) user.PrevWork = PrevWork;
-            if (!String.IsNullOrEmpty(PrevLocation)) user.PrevLocation = PrevLocation;
-            if (!String.IsNullOrEmpty(CurrentWork)) user.CurrentWork = CurrentWork;
-            if (!float.IsNaN(GPA)) user.GPA = GPA;
-            if (!String.IsNullOrEmpty(DreamCompany)) user.DreamCompany = DreamCompany;
-            if (!String.IsNullOrEmpty(Branch)) user.Branch = Branch;
+            ProfileUser user = new ProfileUser();
+            user.Username = Username;
+            user.FirstName = FirstName;
+            user.LastName = LastName;
+            user.Password = Password;
+            user.Email = Email;
+            user.PrevEducation = PrevEducation;
+            user.PrevWork = PrevWork;
+            user.PrevLocation = PrevLocation;
+            user.CurrentWork = CurrentWork;
+            user.GPA = GPA;
+            user.DreamCompany = DreamCompany;
+            user.Branch = Branch;
+
+
+            //ProfileUser user = BusinessLayer.UserManagement.Instance().GetUserProfile(Username);
+            //if (!String.IsNullOrEmpty(FirstName)) user.FirstName = FirstName;
+            //if (!String.IsNullOrEmpty(LastName)) user.LastName = LastName;
+            //if (!String.IsNullOrEmpty(Password)) user.Password = Password;
+            //if (!String.IsNullOrEmpty(Email)) user.Email = Email;
+            //if (!String.IsNullOrEmpty(PrevEducation)) user.PrevEducation = PrevEducation;
+            //if (!String.IsNullOrEmpty(PrevWork)) user.PrevWork = PrevWork;
+            //if (!String.IsNullOrEmpty(PrevLocation)) user.PrevLocation = PrevLocation;
+            //if (!String.IsNullOrEmpty(CurrentWork)) user.CurrentWork = CurrentWork;
+            //if (!float.IsNaN(GPA)) user.GPA = GPA;
+            //if (!String.IsNullOrEmpty(DreamCompany)) user.DreamCompany = DreamCompany;
+            //if (!String.IsNullOrEmpty(Branch)) user.Branch = Branch;
             return DataAccessLayer.UserManagement.Instance().UpdateUserProfile(user);
         }
         public NHibernateLibrary.Entities.ProfileUser GetUserProfile(String Username)

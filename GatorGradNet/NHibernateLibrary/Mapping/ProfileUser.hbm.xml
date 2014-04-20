@@ -21,8 +21,8 @@
     <property name="CurrentWork" column="CURRENTWORK" type="String" length="100" ></property>
     <property name="DreamCompany" column="DREAMCOMPANY" type="String" length="100" ></property>
     <property name="Validated" column="VALIDATED" type="String" length="5"></property>
-    <!--<property name="Gender" column="GENDER" type="String" length="5"></property>
-    <property name="PhotoUrl" column="PHOTOURL" type="String" length="200"></property>-->
+    <property name="Gender" column="GENDER" type="String" length="5"></property>
+    <property name="Placed" column="PLACED" type="String" length="5"></property>
 
     <set name="Addresses" inverse="true" cascade="save-update">
       <key column="UserId"  not-null="true"/>

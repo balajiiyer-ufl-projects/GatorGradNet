@@ -26,8 +26,8 @@ namespace NHibernateLibrary.Entities
 
         public virtual String Validated { get; set; }
 
-        //public virtual String Gender { get; set; }
-        //public virtual String PhotoUrl { get; set; }
+        public virtual String Gender { get; set; }
+        public virtual String Placed { get; set; }
         //public virtual ISet<Address> Address { get; set; }
 
 

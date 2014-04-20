@@ -17,6 +17,8 @@ namespace GatorGradNet.DataAccessLayer
 
         private static UserManagement userManagementInstance = new UserManagement();
 
+        UserManagement () {}
+
         public static UserManagement Instance(){
 
             return userManagementInstance;

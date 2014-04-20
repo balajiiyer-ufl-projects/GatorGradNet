@@ -12,6 +12,7 @@ namespace GatorGradNet.DataAccessLayer
     {
         private static CompanyManagement companyManagementInstance = new CompanyManagement();
 
+        CompanyManagement() { }
         public static CompanyManagement Instance()
         {
             return companyManagementInstance;
@@ -32,6 +33,10 @@ namespace GatorGradNet.DataAccessLayer
             return company;
         }
 
+        public IList<Company> GetCompanyList()
+        {
+            return LoadAll();
+        }
 
     }
 }

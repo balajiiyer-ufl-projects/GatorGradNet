@@ -16,7 +16,7 @@ namespace GatorGradNet.DataAccessLayer
     {
 
         private static RecruitmentStatistics recStatsInstance = new RecruitmentStatistics();
-
+        RecruitmentStatistics() { }
         public static RecruitmentStatistics Instance()
         {
 

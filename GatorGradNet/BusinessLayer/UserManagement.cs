@@ -11,6 +11,7 @@ namespace GatorGradNet.BusinessLayer
     {
         private static UserManagement userManagementInstance = new UserManagement();
 
+        UserManagement() { }
         public static UserManagement Instance()
         {
 

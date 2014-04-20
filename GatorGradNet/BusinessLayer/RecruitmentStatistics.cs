@@ -10,6 +10,13 @@ namespace GatorGradNet.BusinessLayer
 {
     public class RecruitmentStatistics
     {
+        private static RecruitmentStatistics instance = new RecruitmentStatistics();
+
+        RecruitmentStatistics() { }
+
+        public static RecruitmentStatistics Instance() {
+            return instance;
+        }
         public void StatisticsByYear(String CompanyName, String FileLocation)
         {
             DataAccessLayer.RecruitmentStatistics.Instance().StatisticsByYear(CompanyName, FileLocation);

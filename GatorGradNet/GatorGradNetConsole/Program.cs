@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Common;
 using System.IO;
 using System.Collections;
+using GatorGradNet.BusinessLayer;
 
 namespace GatorGradNet
 {
@@ -43,8 +44,8 @@ namespace GatorGradNet
                // Modify the file as required, and then close the file.
             //fs.Close();
             //amyList = aquery.List<Address>();
-            Console.WriteLine(amyList.Count());
-<<<<<<< HEAD
+            //Console.WriteLine(amyList.Count());
+
             //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().StatisticsByYear("microsoft");
             //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().CompanyNameSalary("software development engineer");
             //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().CompanyTotalHires();
@@ -52,9 +53,11 @@ namespace GatorGradNet
             //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().ShowDesignationByHires();
             //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().ShowMaxRecruitmentEachYear(2012);
             //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().ShowSalaryVersusHire();
-=======
-            new GatorGradNet.DataAccessLayer.RecruitmentStatistics().StatisticsByYear("amazon");
->>>>>>> 75863bf4aee58bb692aadc410bf240465a7c3196
+            IList<Company> coList=BusinessLayer.CompanyManagement.Instance().GetCompanyList();
+            
+
+            
+
             Console.ReadLine();
         }
     }

@@ -53,10 +53,10 @@ namespace GatorGradNet
             //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().ShowDesignationByHires();
             //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().ShowMaxRecruitmentEachYear(2012);
             //new GatorGradNet.DataAccessLayer.RecruitmentStatistics().ShowSalaryVersusHire();
-            IList<Company> coList=BusinessLayer.CompanyManagement.Instance().GetCompanyList();
-            
+            //IList<Company> coList=BusinessLayer.CompanyManagement.Instance().GetCompanyList();
 
-            
+
+            IList<ProfileUser> userList=BusinessLayer.UserManagement.Instance().GetGatorsByLocation("India");
 
             Console.ReadLine();
         }

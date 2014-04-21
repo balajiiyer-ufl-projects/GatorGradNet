@@ -30,12 +30,12 @@ namespace GatorGradNet.DataAccessLayer
                company= query.List<NHibernateLibrary.Entities.Company>().FirstOrDefault();
             }
 
-            return company;
+            return Common.Utils<Company>.TrimStringProperties(company);
         }
 
         public IList<Company> GetCompanyList()
         {
-            return LoadAll();
+            return Common.Utils<Company>.TrimStringProperties(LoadAll());
         }
 
     }

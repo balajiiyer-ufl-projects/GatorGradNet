@@ -17,7 +17,7 @@ namespace GatorGradNet.DataAccessLayer
 
         private static UserManagement userManagementInstance = new UserManagement();
 
-        UserManagement () {}
+        UserManagement () { }
 
         public static UserManagement Instance(){
 
@@ -33,7 +33,7 @@ namespace GatorGradNet.DataAccessLayer
             if (query != null && query.RowCount() > 0)
             {
                 userList = query.List<NHibernateLibrary.Entities.ProfileUser>();
-                return userList[0];
+                return Common.Utils<ProfileUser>.TrimStringProperties(userList[0]);
             }
             return null;
         }
@@ -89,7 +89,7 @@ namespace GatorGradNet.DataAccessLayer
             {
                 userList = query.List<NHibernateLibrary.Entities.ProfileUser>();
 
-                return userList[0];
+                return Common.Utils<ProfileUser>.TrimStringProperties(userList[0]);
             }
             return null;
         }
@@ -128,7 +128,8 @@ namespace GatorGradNet.DataAccessLayer
             {
                 throw new DataLayerException(exception.Message, exception.InnerException);
             }
-            return userProfiles;
+            return Common.Utils<ProfileUser>.TrimStringProperties(userProfiles);
+            //return userProfiles;
         }
     }
 }

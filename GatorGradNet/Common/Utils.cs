@@ -75,5 +75,29 @@ namespace Common
                 sw.Close();
             }
         }
+        public static T TrimStringProperties(T input)
+        {
+            var stringProperties = input.GetType().GetProperties()
+                .Where(p => p.PropertyType == typeof(string));
+
+            foreach (var stringProperty in stringProperties)
+            {
+                string currentValue = (string)stringProperty.GetValue(input, null);
+                if (currentValue != null)
+                    stringProperty.SetValue(input, currentValue.Trim(), null);
+            }
+            return input;
+        }
+
+        public static IList<T> TrimStringProperties(IEnumerable<T> list)
+        {
+            IList<T> newList = new List<T>();
+            foreach (var item in list)
+            {
+                newList.Add(TrimStringProperties(item));
+            }
+            return newList;
+        }
+       
     }
 }

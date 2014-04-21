@@ -20,7 +20,7 @@ namespace GatorGradNet.DataAccessLayer
         public static RecruitmentStatistics Instance()
         {
 
-            return recStatsInstance;
+            return Common.Utils<RecruitmentStatistics>.TrimStringProperties(recStatsInstance);
         }
 
 /*        public String[] GetCompaniesBySalary()
@@ -149,7 +149,7 @@ namespace GatorGradNet.DataAccessLayer
             //var query = CurrentSession.QueryOver<Recruitment>().Where(recruitment => recruitment.CompanyDesignationId.CompanyId.Id == companyID).SelectList(list => list.SelectGroup(recruitment => recruitment.Year).SelectSum(recruitment => recruitment.NoOfHires));
             var query = CurrentSession.QueryOver<CompanyTotalHires>().OrderBy(cth => cth.NoOfHires).Desc.Take(10);
             companysalaryList = query.List<CompanyTotalHires>();
-            return companysalaryList;
+            return Common.Utils<CompanyTotalHires>.TrimStringProperties(companysalaryList);
 
         }
         public void DesignationAverageSalary(String FileLocation)

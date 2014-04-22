@@ -96,6 +96,14 @@ namespace GatorGradNet.BusinessLayer
             PUser.Username = Username;
             return DataAccessLayer.UserManagement.Instance().GetUserProfile(PUser);
         }
+
+        public NHibernateLibrary.Entities.ProfileUser GetUserProfileByEMail(string email)
+        {
+            NHibernateLibrary.Entities.ProfileUser profileUser = new NHibernateLibrary.Entities.ProfileUser();
+            profileUser.Email = email;
+            return DataAccessLayer.UserManagement.Instance().GetUserProfileByEMail(profileUser);
+        }
+
         public IList<ProfileUser> GetGatorsByLocation(String Location)
         {
             //NHibernateLibrary.Entities.ProfileUser PUser = new NHibernateLibrary.Entities.ProfileUser();

@@ -47,13 +47,13 @@ namespace Common
                 smtp.Send(mailMessage);
             }
         }
-        public void MailSend(int verificationcode, string ToAddress,string subject, string firstName)
+        public void MailSend(int verificationcode, string ToAddress,string firstName)
         {
             using (MailMessage mailMessage = new MailMessage())
             {
                 
                 mailMessage.From = new MailAddress(Constants.FROM_ADDRESS);
-                mailMessage.Subject = subject;
+                mailMessage.Subject = "GatorGradNet: Your password has been changed";
 
                 mailMessage.Body = "Hello " + firstName + "! <p> Your new password is "+ verificationcode+" </p><br>Sincerely,</br><br>The GatorGradNet team</br>";
                 //mailMessage.Body = "http://server address/Verificationpage.aspx?code=" + verificationcode;
@@ -75,7 +75,7 @@ namespace Common
         }
 
 
-        public void MailSend(string ToAddress, string subject,string )
+        public void MailSend(string ToAddress, string subject,string body)
         {
             using (MailMessage mailMessage = new MailMessage())
             {
@@ -85,6 +85,7 @@ namespace Common
 
                 //mailMessage.Body = "Hello " + firstName + "! <p> Your new password is " + verificationcode + " </p><br>Sincerely,</br><br>The GatorGradNet team</br>";
                 //mailMessage.Body = "http://server address/Verificationpage.aspx?code=" + verificationcode;
+                mailMessage.Body = body;
                 mailMessage.IsBodyHtml = true;
                 mailMessage.To.Add(new MailAddress(ToAddress));
 

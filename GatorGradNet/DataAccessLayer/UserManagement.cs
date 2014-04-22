@@ -93,7 +93,24 @@ namespace GatorGradNet.DataAccessLayer
             }
             return null;
         }
-        
+
+        public NHibernateLibrary.Entities.ProfileUser GetUserProfileByEMail(NHibernateLibrary.Entities.ProfileUser profileUser)
+        {
+
+            IList<NHibernateLibrary.Entities.ProfileUser> userList;
+            var query = CurrentSession.QueryOver<ProfileUser>().Where(user => user.Email == profileUser.Email);
+
+            if (query != null && query.RowCount() > 0)
+            {
+                userList = query.List<NHibernateLibrary.Entities.ProfileUser>();
+
+                return Common.Utils<ProfileUser>.TrimStringProperties(userList[0]);
+            }
+            return null;
+        }
+
+
+
         public IList<ProfileUser> GetGators(Criterion Criterion, String Value)
         {
 

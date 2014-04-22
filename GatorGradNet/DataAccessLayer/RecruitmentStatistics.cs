@@ -249,16 +249,13 @@ namespace GatorGradNet.DataAccessLayer
 
         }
 
-        public IList<CompanySalaryStats> GetTopTenCompaniesBySalary(string FileLocation)
+        public IList<CompanySalaryStats> GetTopTenCompaniesBySalary()
         {
             IList<CompanySalaryStats> companySalaryStats = null;
             var query = CurrentSession.QueryOver<CompanySalaryStats>().OrderBy(css => css.AvgSalary).Desc.Take(10);
             companySalaryStats = query.List<CompanySalaryStats>();
-            FileInfo fi = new FileInfo(FileLocation);
-            // Actually create the file.
-            FileStream fs = fi.Create();
-            fs.Close();
-
+            
+            
             List<string> headers = new List<String>();
             headers.Add("CompanyName");
             headers.Add("AvgSalary");
@@ -266,8 +263,7 @@ namespace GatorGradNet.DataAccessLayer
             headers.Add("MaxSalary");
             
             //Utils<CompanySalaryStats>.WriteDelimitedFile(companySalaryStats, fi, "\t",headers);
-            //Close the file.
-            fs.Close();
+            
             return companySalaryStats;
         }
 

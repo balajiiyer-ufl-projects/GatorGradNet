@@ -57,7 +57,7 @@ namespace GatorGradNet
 
 
             IList<ProfileUser> userList=BusinessLayer.UserManagement.Instance().GetGatorsByLocation("India");
-
+            
             Console.ReadLine();
         }
     }

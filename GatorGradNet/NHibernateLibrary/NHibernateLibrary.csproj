@@ -64,6 +64,7 @@
     <Compile Include="Entities\Company.cs" />
     <Compile Include="Entities\CompanyDesignation.cs" />
     <Compile Include="Entities\CompanyIndustry.cs" />
+    <Compile Include="Entities\CompanySalaryStats.cs" />
     <Compile Include="Entities\Designations.cs" />
     <Compile Include="Entities\Location.cs" />
     <Compile Include="Entities\PhoneNos.cs">

@@ -248,5 +248,32 @@ namespace GatorGradNet.DataAccessLayer
             Console.WriteLine(svhList.Count());
 
         }
+
+        public void GetTopTenCompaniesBySalary(string FileLocation)
+        {
+            IList<CompanySalaryStats> companySalaryStats = null;
+            //var query = CurrentSession.QueryOver<Recruitment>().Where(recruitment => recruitment.CompanyDesignationId.CompanyId.Id == companyID).SelectList(list => list.SelectGroup(recruitment => recruitment.Year).SelectSum(recruitment => recruitment.NoOfHires));
+            var query = CurrentSession.QueryOver<CompanySalaryStats>().OrderBy(css => css.AvgSalary).Desc.Take(10);
+            companySalaryStats = query.List<CompanySalaryStats>();
+            //return Common.Utils<CompanySalaryStats>.TrimStringProperties(companySalaryStats);
+            FileInfo fi = new FileInfo(FileLocation);
+            // Actually create the file.
+            FileStream fs = fi.Create();
+            fs.Close();
+            // Delete the file.
+            //fi.Delete();
+
+            List<string> headers = new List<String>();
+            headers.Add("CompanyName");
+            headers.Add("AvgSalary");
+            headers.Add("MinSalary");
+            headers.Add("MaxSalary");
+            
+            Utils<CompanySalaryStats>.WriteDelimitedFile(companySalaryStats, fi, "\t",headers);
+            // Modify the file as required, and then close the file.
+            fs.Close();
+            //amyList = aquery.List<Address>();
+            //Console.WriteLine(recruitmentList.Count());
+        }
     }
 }

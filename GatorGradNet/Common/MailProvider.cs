@@ -47,6 +47,34 @@ namespace Common
                 smtp.Send(mailMessage);
             }
         }
+        public void MailSend(int verificationcode, string ToAddress,string subject, string firstName)
+        {
+            using (MailMessage mailMessage = new MailMessage())
+            {
+                
+                mailMessage.From = new MailAddress(Constants.FROM_ADDRESS);
+                mailMessage.Subject = subject;
+
+                mailMessage.Body = "Hello " + firstName + "! <p> Your new password is "+ verificationcode+" </p><br>Sincerely,</br><br>The GatorGradNet team</br>";
+                //mailMessage.Body = "http://server address/Verificationpage.aspx?code=" + verificationcode;
+                mailMessage.IsBodyHtml = true;
+                mailMessage.To.Add(new MailAddress(ToAddress));
+
+
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = Constants.HOST;
+                smtp.EnableSsl = true;
+                System.Net.NetworkCredential NetworkCred = new System.Net.NetworkCredential();
+                NetworkCred.UserName = mailMessage.From.Address;
+                NetworkCred.Password = Constants.PASSWORD;
+                smtp.UseDefaultCredentials = true;
+                smtp.Credentials = NetworkCred;
+                smtp.Port = Constants.PORT;
+                smtp.Send(mailMessage);
+            }
+        }
+
+
 
         #endregion
     }

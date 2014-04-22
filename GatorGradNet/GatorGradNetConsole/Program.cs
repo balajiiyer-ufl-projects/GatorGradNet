@@ -56,8 +56,11 @@ namespace GatorGradNet
             //IList<Company> coList=BusinessLayer.CompanyManagement.Instance().GetCompanyList();
 
 
-            IList<ProfileUser> userList=BusinessLayer.UserManagement.Instance().GetGatorsByLocation("India");
-            
+           // IList<ProfileUser> userList=BusinessLayer.UserManagement.Instance().GetGatorsByLocation("India");
+
+            BusinessLayer.RecruitmentStatistics.Instance().GetSalaryByCompany("C:\\data.txt", "Amazon.com Inc");
+
+
             Console.ReadLine();
         }
     }

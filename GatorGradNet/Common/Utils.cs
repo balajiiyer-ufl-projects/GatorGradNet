@@ -105,7 +105,7 @@ namespace Common
             if (list == null) return;
             using (StreamWriter sw = saveFile.CreateText())
             {
-                PropertyInfo[] props = typeof(T).GetProperties().Where(x => !headers.Contains(x.Name)).ToArray();
+                PropertyInfo[] props = typeof(T).GetProperties().Where(x => headers.Contains(x.Name)).ToArray();
                 var headerNames = props.Select(x => x.Name);
                 sw.WriteLine(string.Join(delimiter, headerNames.ToArray()));
                 foreach (T item in list)
@@ -115,9 +115,44 @@ namespace Common
                     .Select(x => x.ToString())
                     .Select(x => x.Contains(delimiter) ? "\"" + x + "\"" : x); // if a value contains the delimiter, surround with quotes
                     sw.WriteLine(string.Join(delimiter, values.ToArray()));
+                    
                 }
                 sw.Close();
             }
         }
+
+        public static void WriteSalaryToDelimitedFile(IEnumerable<T> list, FileInfo saveFile, string delimiter, List<string>headers)
+        {
+            if (list == null) return;
+            using (StreamWriter sw = saveFile.CreateText())
+            {
+                PropertyInfo[] props = typeof(T).GetProperties().Where(x => headers.Contains(x.Name)).ToArray();
+                var headerNames = props.Select(x => x.Name);
+                List<string> salheaders=new List<string>();
+                salheaders.Add("SalaryType");
+                salheaders.Add("Value");
+
+
+
+                sw.WriteLine(string.Join(delimiter, salheaders.ToArray()));
+                foreach (T item in list)
+                {
+                    for(int count=1;count<=headerNames.Count()-1;count++){
+                    sw.Write(headerNames.ElementAt(count));
+                    
+                    
+                    T item1 = item; // to prevent access to modified closure
+                    var values = props.Select(x => x.GetValue(item1, null) ?? "") // the null coalescing operator, replace null with ""
+                    .Select(x => x.ToString())
+                    .Select(x => x.Contains(delimiter) ? "\"" + x + "\"" : x); // if a value contains the delimiter, surround with quotes
+                    sw.WriteLine(delimiter+values.ElementAt(count));
+                        //sw.WriteLine(string.Join(delimiter, values.ToArray()));
+                    }
+
+                }
+                sw.Close();
+            }
+        }
+
     }
 }

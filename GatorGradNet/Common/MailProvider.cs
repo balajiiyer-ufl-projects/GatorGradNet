@@ -47,7 +47,7 @@ namespace Common
                 smtp.Send(mailMessage);
             }
         }
-        public void MailSend(int verificationcode, string ToAddress,string firstName)
+        public void MailSendResetPassword(int verificationcode, string ToAddress,string firstName)
         {
             using (MailMessage mailMessage = new MailMessage())
             {

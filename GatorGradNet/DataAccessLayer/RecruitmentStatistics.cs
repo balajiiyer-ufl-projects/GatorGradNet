@@ -274,7 +274,7 @@ namespace GatorGradNet.DataAccessLayer
         public void GetSalaryByCompany(string FileLocation, string companyName)
         {
             IList<CompanySalaryStats> companySalaryStats = null;
-            var query = CurrentSession.QueryOver<CompanySalaryStats>().Where(css => css.CompanyName==companyName);
+            var query = CurrentSession.QueryOver<CompanySalaryStats>().Where(css => css.CompanyName==companyName).Take(1);
             companySalaryStats = query.List<CompanySalaryStats>();
             FileInfo fi = new FileInfo(FileLocation);
             // Actually create the file.
@@ -286,7 +286,7 @@ namespace GatorGradNet.DataAccessLayer
             headers.Add("AvgSalary");
             headers.Add("MinSalary");
             headers.Add("MaxSalary");
-            Utils<CompanySalaryStats>.WriteDelimitedFile(companySalaryStats, fi, "\t", headers);
+            Utils<CompanySalaryStats>.WriteSalaryToDelimitedFile(companySalaryStats, fi, "\t", headers);
             fs.Close();
            
         }

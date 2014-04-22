@@ -66,7 +66,7 @@ namespace NHibernateLibrary.Helper
             TIdentifier identifier = new TIdentifier();
             using (ITransaction transaction = CurrentSession.BeginTransaction())
             {
-                CurrentSession.SaveOrUpdate(entity);
+                CurrentSession.Merge(entity);
                 //CurrentSession.Flush();
                 transaction.Commit();
             }

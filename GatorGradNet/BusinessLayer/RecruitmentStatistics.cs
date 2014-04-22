@@ -54,9 +54,9 @@ namespace GatorGradNet.BusinessLayer
             DataAccessLayer.RecruitmentStatistics.Instance().ShowSalaryVersusHire(FileLocation);
         }
 
-        public void GetTopTenCompaniesBySalary(string FileLocation)
+        public IList<CompanySalaryStats> GetTopTenCompaniesBySalary(string FileLocation)
         {
-            DataAccessLayer.RecruitmentStatistics.Instance().GetTopTenCompaniesBySalary(FileLocation);
+           return  DataAccessLayer.RecruitmentStatistics.Instance().GetTopTenCompaniesBySalary(FileLocation);
         }
 
         public void GetTopTenCompaniesByMinSalary(string FileLocation)

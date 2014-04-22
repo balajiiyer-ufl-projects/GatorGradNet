@@ -249,7 +249,7 @@ namespace GatorGradNet.DataAccessLayer
 
         }
 
-        public void GetTopTenCompaniesBySalary(string FileLocation)
+        public IList<CompanySalaryStats> GetTopTenCompaniesBySalary(string FileLocation)
         {
             IList<CompanySalaryStats> companySalaryStats = null;
             var query = CurrentSession.QueryOver<CompanySalaryStats>().OrderBy(css => css.AvgSalary).Desc.Take(10);
@@ -265,10 +265,10 @@ namespace GatorGradNet.DataAccessLayer
             headers.Add("MinSalary");
             headers.Add("MaxSalary");
             
-            Utils<CompanySalaryStats>.WriteDelimitedFile(companySalaryStats, fi, "\t",headers);
+            //Utils<CompanySalaryStats>.WriteDelimitedFile(companySalaryStats, fi, "\t",headers);
             //Close the file.
             fs.Close();
-            
+            return companySalaryStats;
         }
 
         public void GetTopTenCompaniesByMinSalary(string FileLocation)

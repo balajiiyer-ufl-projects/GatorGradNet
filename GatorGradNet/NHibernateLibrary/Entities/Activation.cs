@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NHibernateLibrary.Entities
 {
-    class Activation
+    public class Activation
     {
         #region Public Members
         //public virtual Int64 UserID { get; set; }

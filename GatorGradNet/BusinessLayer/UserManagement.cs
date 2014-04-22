@@ -104,11 +104,20 @@ namespace GatorGradNet.BusinessLayer
             return DataAccessLayer.UserManagement.Instance().GetUserProfileByEMail(profileUser);
         }
 
+        public IList<ProfileUser> AdvanceSearch(string firstName,string lastName,string branch,string currentWork,float GPA)
+        {
+            ProfileUser profileUser = new ProfileUser();
+            profileUser.FirstName = firstName;
+            profileUser.LastName = lastName;
+            profileUser.Branch = branch;
+            profileUser.CurrentWork = currentWork;
+            profileUser.GPA = GPA;
+            return DataAccessLayer.UserManagement.Instance().AdvanceSearch(profileUser);
+        }
+
         public IList<ProfileUser> GetGatorsByLocation(String Location)
         {
             //NHibernateLibrary.Entities.ProfileUser PUser = new NHibernateLibrary.Entities.ProfileUser();
-            //PUser.Username = Username;
-
             return DataAccessLayer.UserManagement.Instance().GetGators(DataAccessLayer.UserManagement.Criterion.Location, Location);
         }
         public IList<ProfileUser> GetGatorsByPreviousEmployment(String Employment)

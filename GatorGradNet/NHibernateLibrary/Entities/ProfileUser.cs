@@ -28,6 +28,8 @@ namespace NHibernateLibrary.Entities
 
         public virtual String Gender { get; set; }
         public virtual String Placed { get; set; }
+
+        public virtual Int64 Code { get; set; }
         //public virtual ISet<Address> Address { get; set; }
 
 

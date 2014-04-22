@@ -271,6 +271,49 @@ namespace GatorGradNet.DataAccessLayer
             
         }
 
+        public void GetTopTenCompaniesByMinSalary(string FileLocation)
+        {
+            IList<CompanySalaryStats> companySalaryStats = null;
+            var query = CurrentSession.QueryOver<CompanySalaryStats>().OrderBy(css => css.MinSalary).Desc.Take(10);
+            companySalaryStats = query.List<CompanySalaryStats>();
+            FileInfo fi = new FileInfo(FileLocation);
+            // Actually create the file.
+            FileStream fs = fi.Create();
+            fs.Close();
+
+            List<string> headers = new List<String>();
+            headers.Add("CompanyName");
+            headers.Add("AvgSalary");
+            headers.Add("MinSalary");
+            headers.Add("MaxSalary");
+
+            Utils<CompanySalaryStats>.WriteDelimitedFile(companySalaryStats, fi, "\t", headers);
+            //Close the file.
+            fs.Close();
+
+        }
+        public void GetTopTenCompaniesByMaxSalary(string FileLocation)
+        {
+            IList<CompanySalaryStats> companySalaryStats = null;
+            var query = CurrentSession.QueryOver<CompanySalaryStats>().OrderBy(css => css.MaxSalary).Desc.Take(10);
+            companySalaryStats = query.List<CompanySalaryStats>();
+            FileInfo fi = new FileInfo(FileLocation);
+            // Actually create the file.
+            FileStream fs = fi.Create();
+            fs.Close();
+
+            List<string> headers = new List<String>();
+            headers.Add("CompanyName");
+            headers.Add("AvgSalary");
+            headers.Add("MinSalary");
+            headers.Add("MaxSalary");
+
+            Utils<CompanySalaryStats>.WriteDelimitedFile(companySalaryStats, fi, "\t", headers);
+            //Close the file.
+            fs.Close();
+
+        }
+
         public void GetSalaryByCompany(string FileLocation, string companyName)
         {
             IList<CompanySalaryStats> companySalaryStats = null;

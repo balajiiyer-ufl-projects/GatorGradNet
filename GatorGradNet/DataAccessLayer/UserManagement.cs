@@ -40,11 +40,11 @@ namespace GatorGradNet.DataAccessLayer
         public bool CheckIfUserExists(NHibernateLibrary.Entities.ProfileUser profileUser)
         {
 
-            Boolean userExists = false;
-            var query = CurrentSession.QueryOver<ProfileUser>().Where(user => user.Username == profileUser.Username);
+            Boolean userExists = true;
+            var query = CurrentSession.QueryOver<ProfileUser>().Where(user => user.Username == profileUser.Username && user.Password==profileUser.Password&&user.Validated=="'N'");
             if (query != null && query.RowCount() > 0)
             {
-                userExists = true;
+                userExists = false;
             }
             
             return userExists;
@@ -79,6 +79,7 @@ namespace GatorGradNet.DataAccessLayer
                 throw new DataLayerException(exception.Message, exception.InnerException);
             } return true;
         }
+
         public NHibernateLibrary.Entities.ProfileUser GetUserProfile(NHibernateLibrary.Entities.ProfileUser profileUser)
         {
            
@@ -148,5 +149,98 @@ namespace GatorGradNet.DataAccessLayer
             return Common.Utils<ProfileUser>.TrimStringProperties(userProfiles);
             //return userProfiles;
         }
+
+        public IList<ProfileUser> AdvanceSearch(ProfileUser profileUser)
+        {
+
+            IList<ProfileUser> userProfiles;
+
+            List<ICriteria> searchCriteria=new List<ICriteria>();
+
+
+            StringBuilder sb=new StringBuilder();
+
+            ICriteria criteria = CurrentSession.CreateCriteria(typeof(ProfileUser));
+            userProfiles= criteria.List<ProfileUser>();
+            bool startCriteria = false;
+           
+            if (!String.IsNullOrEmpty(profileUser.FirstName))
+            {
+                startCriteria = true;
+                sb.Append("FirstName="+profileUser.FirstName);
+            }
+
+            if (!String.IsNullOrEmpty(profileUser.LastName))
+            {
+                if (startCriteria)
+                {
+                    sb.Append(" AND ");
+                }
+                else
+                {
+                    startCriteria = true;
+                }
+                sb.Append("LastName="+profileUser.LastName);
+            }
+
+            if (profileUser.GPA!=null)
+            {
+
+                if (startCriteria)
+                {
+                    sb.Append(" AND ");
+                }
+                else
+                {
+                    startCriteria = true;
+                }
+                sb.Append("GPA="+profileUser.GPA);
+            }
+
+            if (!String.IsNullOrEmpty(profileUser.Branch))
+            {
+                if (startCriteria)
+                {
+                    sb.Append(" AND ");
+                }
+                else
+                {
+                    startCriteria = true;
+                }
+                    sb.Append("Branch="+profileUser.Branch);
+            }
+
+            if (!String.IsNullOrEmpty(profileUser.CurrentWork))
+            {
+                if (startCriteria)
+                {
+                    sb.Append(" AND ");
+                }
+                else
+                {
+                    startCriteria = true;
+                }
+                    sb.Append("CurrentWork="+profileUser.CurrentWork);
+            }
+
+            try
+            {
+                
+                IQuery aquery = CurrentSession.CreateQuery("select * from ProfileUser where "+sb.ToString());
+                    //var query = CurrentSession.QueryOver<ProfileUser>().Where(pu=> pu.FirstName==profileUser.FirstName);
+                userProfiles = aquery.List<ProfileUser>();
+                
+                
+            }
+            catch (Exception exception)
+            {
+                throw new DataLayerException(exception.Message, exception.InnerException);
+            }
+            return Common.Utils<ProfileUser>.TrimStringProperties(userProfiles);
+            //return userProfiles;
+        }
+
+
+
     }
 }

@@ -23,7 +23,8 @@
     <property name="Validated" column="VALIDATED" type="String" length="5"></property>
     <property name="Gender" column="GENDER" type="String" length="5"></property>
     <property name="Placed" column="PLACED" type="String" length="5"></property>
-
+     <property name="Code" column="CODE" type="Int64"></property>
+  
     <set name="Addresses" inverse="true" cascade="save-update">
       <key column="UserId"  not-null="true"/>
       <one-to-many class="Address" />

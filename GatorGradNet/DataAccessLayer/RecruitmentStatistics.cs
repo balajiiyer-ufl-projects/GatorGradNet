@@ -274,7 +274,7 @@ namespace GatorGradNet.DataAccessLayer
         public void GetTopTenCompaniesByMinSalary(string FileLocation)
         {
             IList<CompanySalaryStats> companySalaryStats = null;
-            var query = CurrentSession.QueryOver<CompanySalaryStats>().OrderBy(css => css.MinSalary).Desc.Take(10);
+            var query = CurrentSession.QueryOver<CompanySalaryStats>().OrderBy(css => css.MinSalary).Asc.Take(10);
             companySalaryStats = query.List<CompanySalaryStats>();
             FileInfo fi = new FileInfo(FileLocation);
             // Actually create the file.
